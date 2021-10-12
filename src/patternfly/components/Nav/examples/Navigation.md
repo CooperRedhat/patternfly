@@ -537,6 +537,28 @@ import './Navigation.css'
 {{/nav}}
 ```
 
+### Flyout with menu component
+```hbs
+{{> nav--flyout nav--flyout--id="menu-flyout-example" nav--flyout--submenu--IsExpanded="true" nav--IsMenuFlyout="true"}}
+```
+
+<!--
+### Drilldown
+```hbs
+{{> nav--drilldown nav--drilldown--id="basic-drilldown-example"}}
+```
+
+### Level 2 drilldown
+```hbs
+{{> nav--drilldown nav--drilldown--id="level-2-drilldown-example" nav--drilldown--level-2="true"}}
+```
+
+### Level 3 drilldown
+```hbs
+{{> nav--drilldown nav--drilldown--id="level-2-drilldown-example" nav--drilldown--level-2="true" nav--drilldown--level-3="true"}}
+```
+-->
+
 ## Documentation
 
 ### Overview
@@ -556,6 +578,8 @@ The navigation system relies on several different sub-components:
 | `hidden` | `.pf-c-nav__subnav` |  Indicates that the subnav section is hidden so that it isn't visible in the UI and isn't accessed by assistive technologies. |
 | `disabled` | `.pf-c-nav__scroll-button` | Indicates that a scroll button is disabled, when at the first or last item of a list. **Required when disabled** |
 | `aria-current="page"` | `.pf-c-nav__link` |  Indicates the current page link. Can only occur once on page. |
+| `aria-haspopup="true"` | `.pf-c-nav__link` | Declares that a nav item has a submenu. |
+
 
 ### Usage
 
@@ -575,7 +599,9 @@ The navigation system relies on several different sub-components:
 | `.pf-m-horizontal-subnav` | `.pf-c-nav` | Modifies nav for the horizontal subnav variation. |
 | `.pf-m-tertiary` | `.pf-c-nav` | Modifies nav for the tertiary variation. |
 | `.pf-m-light` | `.pf-c-nav` | Modifies nav for the light variation. **Note: only for use with vertical navs, and requires `.pf-m-light` on the page component's sidebar element (`.pf-c-page__sidebar`)**. |
+| `.pf-m-flyout` | `.pf-c-nav__item` | Modifies nav item for the flyout variation. |
 | `.pf-m-scrollable` | `.pf-c-nav` | Modifies nav for the scrollable state. |
 | `.pf-m-expandable` | `.pf-c-nav__item` | Modifies for the expandable state. |
 | `.pf-m-expanded` | `.pf-c-nav__item` | Modifies for the expanded state. |
 | `.pf-m-current` | `.pf-c-nav__link` | Modifies for the current state. |
+| `.pf-m-start` | `.pf-c-nav__toggle` | Modifies nav toggle to align left. |

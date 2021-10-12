@@ -101,48 +101,20 @@ import './Menu.css'
 {{/menu}}
 ```
 
-### With expanded toggle
+### Scrollable
 ```hbs
-{{#> menu}}
+{{#> menu menu--modifier="pf-m-scrollable"}}
   {{#> menu-content}}
-    {{#> menu-list}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              From Git
-            {{/menu-item-text}}
-            {{> menu-item-toggle-icon}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item menu-list-item--IsDisabled="true"}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Container image
-            {{/menu-item-text}}
-            {{> menu-item-toggle-icon}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-icon}}
-            <i class="fas fa-fw fa-cube" aria-hidden="true"></i>
-            {{/menu-item-icon}}
-            {{#> menu-item-text}}
-              From DockerFile
-            {{/menu-item-text}}
-            {{> menu-item-toggle-icon}}
-          {{/menu-item-main}}
-          {{#> menu-item-description}}
-            Description
-          {{/menu-item-description}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-    {{/menu-list}}
+    {{> menu--long-list}}
+  {{/menu-content}}
+{{/menu}}
+```
+
+### Scrollable with custom menu height
+```hbs
+{{#> menu menu--modifier="pf-m-scrollable" menu--attribute='style="--pf-c-menu__content--MaxHeight: 200px;"'}}
+  {{#> menu-content}}
+    {{> menu--long-list}}
   {{/menu-content}}
 {{/menu}}
 ```
@@ -745,7 +717,7 @@ import './Menu.css'
 
 ### Scrollable drilldown
 ```hbs
-{{> menu--Drilldown menu--Drilldown--id="drilldown-default" menu--Drilldown--menu--attribute='style="--pf-c-menu__content--MaxHeight: 100px;"'}}
+{{> menu--Drilldown menu--Drilldown--id="drilldown-default" menu--Drilldown--menu--modifier="pf-m-scrollable" menu--Drilldown--menu--attribute='style="--pf-c-menu__content--MaxHeight: 100px;"'}}
 ```
 
 ### Width modified drilldown
@@ -816,77 +788,13 @@ import './Menu.css'
 
 ### Scrollable menu with header and footer
 ```hbs
-{{#> menu menu--id="scrollable-menu-header-footer-example" menu--attribute='style="--pf-c-menu__content--MaxHeight: 200px;"'}}
+{{#> menu menu--id="scrollable-menu-header-footer-example" menu--modifier="pf-m-scrollable"}}
   {{#> menu-header}}
     Header
   {{/menu-header}}
   {{> divider}}
   {{#> menu-content}}
-    {{#> menu-list}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 1
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 2
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 3
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 4
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 5
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 6
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 7
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-    {{/menu-list}}
+    {{> menu--long-list}}
   {{/menu-content}}
   {{#> menu-footer}}
     {{#> button button--modifier="pf-m-link pf-m-inline"}}
@@ -898,7 +806,7 @@ import './Menu.css'
 
 ### Scrollable menu with search and footer
 ```hbs
-{{#> menu menu--id="scrollable-menu-search-footer-example" menu--attribute='style="--pf-c-menu__content--MaxHeight: 200px;"'}}
+{{#> menu menu--id="scrollable-menu-search-footer-example" menu--modifier="pf-m-scrollable"}}
   {{#> menu-search}}
     {{#> menu-search-input}}
       {{> form-control controlType="input" input="true" form-control--modifier="pf-m-search" form-control--attribute=(concat 'type="search" id="' id '-search-input" name="' id '-search-input" aria-label="Search"')}}
@@ -906,71 +814,7 @@ import './Menu.css'
   {{/menu-search}}
   {{> divider}}
   {{#> menu-content}}
-    {{#> menu-list}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 1
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 2
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 3
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 4
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 5
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 6
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-      {{#> menu-list-item}}
-        {{#> menu-item}}
-          {{#> menu-item-main}}
-            {{#> menu-item-text}}
-              Action 7
-            {{/menu-item-text}}
-          {{/menu-item-main}}
-        {{/menu-item}}
-      {{/menu-list-item}}
-    {{/menu-list}}
+    {{> menu--long-list}}
   {{/menu-content}}
   {{#> menu-footer}}
     {{#> button button--modifier="pf-m-link pf-m-inline"}}
@@ -1575,7 +1419,7 @@ import './Menu.css'
         {{/menu-item}}
       {{/menu-list-item}}
       {{#> menu-list-item menu-list-item--modifier="pf-m-loading"}}
-        {{#> spinner spinner--modifier="pf-m-lg"}}Loading...{{/spinner}}
+        {{#> spinner spinner--modifier="pf-m-lg"}}Loading items{{/spinner}}
       {{/menu-list-item}}
     {{/menu-list}}
   {{/menu-content}}
@@ -1633,11 +1477,95 @@ import './Menu.css'
 {{/menu}}
 ```
 
+### Plain
+```hbs
+{{#> menu menu--modifier="pf-m-plain"}}
+  {{#> menu-content}}
+    {{#> menu-list}}
+      {{#> menu-list-item}}
+        {{#> menu-item}}
+          {{#> menu-item-main}}
+            {{#> menu-item-text}}
+              Action
+            {{/menu-item-text}}
+          {{/menu-item-main}}
+        {{/menu-item}}
+      {{/menu-list-item}}
+      {{#> menu-list-item}}
+        {{#> menu-item menu-item--IsLink="true"}}
+          {{#> menu-item-main}}
+            {{#> menu-item-text}}
+              Link
+            {{/menu-item-text}}
+          {{/menu-item-main}}
+        {{/menu-item}}
+      {{/menu-list-item}}
+      {{#> menu-list-item menu-list-item--IsDisabled="true"}}
+        {{#> menu-item}}
+          {{#> menu-item-main}}
+            {{#> menu-item-text}}
+            Disabled action
+            {{/menu-item-text}}
+          {{/menu-item-main}}
+        {{/menu-item}}
+      {{/menu-list-item}}
+      {{#> menu-list-item menu-list-item--IsDisabled="true"}}
+        {{#> menu-item menu-item--IsLink="true"}}
+          {{#> menu-item-main}}
+            {{#> menu-item-text}}
+            Disabled link
+            {{/menu-item-text}}
+          {{/menu-item-main}}
+        {{/menu-item}}
+      {{/menu-list-item}}
+    {{/menu-list}}
+  {{/menu-content}}
+{{/menu}}
+```
+
+### Plain with search and footer
+```hbs
+{{#> menu menu--id="plain-with-search-and-footer-example" menu--modifier="pf-m-plain"}}
+  {{#> menu-search}}
+    {{#> menu-search-input}}
+      {{> form-control controlType="input" input="true" form-control--modifier="pf-m-search" form-control--attribute=(concat 'type="search" id="' id '-search-input" name="' id '-search-input" aria-label="Search"')}}
+    {{/menu-search-input}}
+  {{/menu-search}}
+  {{> divider}}
+  {{#> menu-content}}
+    {{> menu--long-list}}
+  {{/menu-content}}
+  {{#> menu-footer}}
+    {{#> button button--modifier="pf-m-link pf-m-inline"}}
+      Footer
+    {{/button}}
+  {{/menu-footer}}
+{{/menu}}
+```
+
+### Plain scrollable with search and footer
+```hbs
+{{#> menu menu--id="plain-scrollable-with-search-and-footer-example" menu--modifier="pf-m-plain pf-m-scrollable"}}
+  {{#> menu-search}}
+    {{#> menu-search-input}}
+      {{> form-control controlType="input" input="true" form-control--modifier="pf-m-search" form-control--attribute=(concat 'type="search" id="' id '-search-input" name="' id '-search-input" aria-label="Search"')}}
+    {{/menu-search-input}}
+  {{/menu-search}}
+  {{> divider}}
+  {{#> menu-content}}
+    {{> menu--long-list}}
+  {{/menu-content}}
+  {{#> menu-footer}}
+    {{#> button button--modifier="pf-m-link pf-m-inline"}}
+      Footer
+    {{/button}}
+  {{/menu-footer}}
+{{/menu}}
+```
+
 ## Documentation
-### Overview
 
 ### Accessibility
-
 | Attribute | Applied | Outcome |
 | -- | -- | -- |
 | `disabled` | `button.pf-c-menu__item` | When the menu item uses a button element, indicates that it is unavailable and removes it from keyboard focus. |
@@ -1670,17 +1598,22 @@ import './Menu.css'
 | `.pf-c-menu__item-action-icon` | `<span>` | Initiates the menu item action icon. |
 | `.pf-c-menu__item-external-icon` | `<span>` | Initiates the menu item external icon. |
 | `.pf-c-menu__footer` | `<div>` | Initiates the menu footer. |
+| `.pf-m-hidden{-on-[breakpoint]}` | `.pf-c-menu__list`, `.pf-c-menu__list-item`, `.pf-c-menu__group` | Modifies a menu element to be hidden, at optional breakpoint. |
+| `.pf-m-visible{-on-[breakpoint]}` | `.pf-c-menu__list`, `.pf-c-menu__list-item`, `.pf-c-menu__group` | Modifies a menu element to be shown, at optional breakpoint. |
 | `.pf-m-favorite` | `.pf-c-menu__item-action` | Modifies the menu item action to handle the favorite icon. |
 | `.pf-m-favorited` | `.pf-c-menu__item-action.pf-m-favorite` | Modifies the menu item action icon to be favorited. |
 | `.pf-m-selected` | `.pf-c-menu__item` | Modifies the menu item to be selected. |
 | `.pf-m-flyout` | `.pf-c-menu` | Modifies the menu so that all nested `.pf-c-menu` elements "flyout". |
 | `.pf-m-top` | `.pf-c-menu` | Modifies a flyout menu to expand to the top. |
 | `.pf-m-left` | `.pf-c-menu` | Modifies a flyout menu to expand to the left. |
+| `.pf-m-plain` | `.pf-c-menu` | Modifies the menu component for use in the page instead of as a dropdown. |
+| `.pf-m-scrollable` | `.pf-c-menu` | Modifies the menu component content for scrollable styles. Scrollable content height can be customized by setting `--pf-c-menu__content--MaxHeight`. |
 | `.pf-m-load` | `.pf-c-menu__list-item` | Modifies a list item for "load more" styles. |
 | `.pf-m-loading` | `.pf-c-menu__list-item` | Modifies a list item for loading styles. |
 | `.pf-m-drilldown` | `.pf-c-menu` | Modifies the menu so that all nested `.pf-c-menu` elements "drill down". |
 | `.pf-m-current-path` | `.pf-c-menu.pf-m-drilldown .pf-c-menu__list-item` | Modifies the menu list item for current path state. |
 | `.pf-m-drilled-in` | `.pf-c-menu.pf-m-drilldown, .pf-c-menu.pf-m-drilldown .pf-c-menu` | Modifies the menu list for drilled in state. |
+| `.pf-m-static` | `.pf-c-menu.pf-m-drilldown .pf-c-menu` | Modifies the menu list for drilled static state. |
 | `--pf-c-menu--Width: {width}` | `.pf-c-menu` | Modifies the width of the menu. The default value is `auto`. |
 | `--pf-c-menu__content--MaxHeight: {height}` | `.pf-c-menu__content` | Modifies the height of the menu content. Update this value when header and/or footer elements are intended to be fixed. |
 | `--pf-c-menu__content--Height: {height}` | `.pf-c-menu` | Modifies the height of the drilldown menu content. The default value is `auto`. |

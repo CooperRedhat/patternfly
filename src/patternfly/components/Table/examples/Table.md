@@ -2973,6 +2973,43 @@ Long strings in table cells will push content. Add a width modifier to `thead th
 {{/table}}
 ```
 
+### Sticky column
+
+```hbs
+<div class="pf-c-scroll-inner-wrapper">
+  {{> table--scrollable table--scrollable--id="sticky-column-example" table--scrollable--Column1IsStickyColumn="true" table--scrollable--th--modifier--cell-1-modifier="pf-m-border-right"}}
+</div>
+```
+
+### Multiple sticky columns
+
+```hbs
+<div class="pf-c-scroll-inner-wrapper">
+  {{> table--scrollable table--scrollable--id="sticky-multi-column-example" table--scrollable--Column1IsStickyColumn="true" table--scrollable--Column2IsStickyColumn="true" table--scrollable--th--modifier--cell-2-modifier="pf-m-border-right"}}
+</div>
+```
+
+### Sticky columns and header
+
+```hbs
+<div class="pf-c-scroll-outer-wrapper">
+  <div class="pf-c-scroll-inner-wrapper">
+    {{> table--scrollable table--scrollable--id="sticky-header-columns-example" table--scrollable--modifier="pf-m-sticky-header" table--scrollable--Column1IsStickyColumn="true" table--scrollable--Column2IsStickyColumn="true" table--scrollable--th--modifier--cell-2-modifier="pf-m-border-right"}}
+  </div>
+</div>
+```
+
+### Sticky column usage
+
+For sticky columns to function correctly, the parent table's width must be controlled with `.pf-c-scroll-inner-wrapper`. For sticky columns and sticky headers to function correctly, the parent table needs an inner and outer wrapper (`.pf-c-scroll-outer-wrapper` and `.pf-c-scroll-inner-wrapper`)
+
+| Class | Applied to | Outcome |
+| -- | -- | -- |
+| `.pf-c-scroll-outer-wrapper` | `<div>` | Initiates a table container sticky columns outer wrapper. |
+| `.pf-c-scroll-inner-wrapper` | `<div>` | Initiates a table container sticky columns inner wrapper. |
+| `.pf-c-table__sticky-column` | `<th>`, `<td>` | Initiates a sticky table cell. |
+| `.pf-m-border-right` | `.pf-c-table__sticky-column` | Modifies the sticky column to show a right border. |
+
 ## Favorites
 
 ### Favorites examples
@@ -3109,12 +3146,12 @@ Long strings in table cells will push content. Add a width modifier to `thead th
 {{/table}}
 ```
 
-### Favorites sortable example 
+### Favorites sortable example
 ```hbs
 {{#> table table--id="table-favorites-sortable" table--grid="true" table--modifier="pf-m-grid-md" table--attribute='aria-label="This is a sortable with favorites table example"'}}
   {{#> table-thead}}
     {{#> table-tr table-tr--id="1"}}
-      {{> table-th table-th--attribute='scope="col"' table-th--IsFavorite="true" table-th--sortable="true" table-th--selected="true"}}
+      {{> table-th table-th--attribute='scope="col"' table-th--IsFavorite="true" table-th--sortable="true" table-th--selected="true" table-button--attribute='aria-label="Favorite"'}}
       {{#> table-th table-th--attribute='scope="col"'}}
         Repositories
       {{/table-th}}
@@ -3370,10 +3407,10 @@ Long strings in table cells will push content. Add a width modifier to `thead th
 | Attribute | Applied to | Outcome |
 | -- | -- | -- |
 | `aria-pressed="true or false"` | `.pf-c-table__draggable .pf-c-button` | Indicates whether the button is currently pressed or not.  |
-| `aria-live` | `[element with live text]` | To give screen reader users live feedback about what's happening during interaction with the data list, both during drag and drop interactions and keyboard interactions. **Highly Recommended** |
+| `aria-live` | `[element with live text]` | To give screen reader users live feedback about what's happening during interaction with the table, both during drag and drop interactions and keyboard interactions. **Highly Recommended** |
 | `aria-describedby="[id value of applicable content]"` | `.pf-c-table__draggable .pf-c-button` | Gives the draggable button an accessible description by referring to the textual content that describes how to use the button to drag elements. The example here uses a `<div id="table-draggable-rows-help"></div>`. **Highly recommended** |
 | `aria-labelledby="[id of .pf-c-table__draggable .pf-c-button] [id of row title text]"` | `.pf-c-table__draggable .pf-c-button` | Provides an accessible name for the draggable button. |
-| `id="[]"` | `.pf-c-data-list__item-draggable-button`, `[element with row title text]` | Gives the button and the text element accessible IDs |
+| `id="[]"` | `.pf-c-table__draggable .pf-c-button`, `[element with row title text]` | Gives the button and the text element accessible IDs. |
 
 ### Draggable rows usage
 | Class | Applied to | Outcome |
