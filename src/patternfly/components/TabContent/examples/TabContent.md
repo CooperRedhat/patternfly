@@ -23,16 +23,16 @@ cssPrefix: pf-c-tab-content
 
 ### Padding
 ```hbs
-{{#> tab-content tab-content--modifier="pf-m-padding" tab-content--IsActive="true" tab-content--attribute='id="tab1-panel"'}}
+{{#> tab-content tab-content-body--modifier="pf-m-padding" tab-content--IsActive="true" tab-content--attribute='id="tab1-panel"'}}
   Panel 1
 {{/tab-content}}
-{{#> tab-content tab-content--modifier="pf-m-padding" tab-content--attribute='id="tab2-panel"'}}
+{{#> tab-content tab-content-body--modifier="pf-m-padding" tab-content--attribute='id="tab2-panel"'}}
   Panel 2
 {{/tab-content}}
-{{#> tab-content tab-content--modifier="pf-m-padding" tab-content--attribute='id="tab3-panel"'}}
+{{#> tab-content tab-content-body--modifier="pf-m-padding" tab-content--attribute='id="tab3-panel"'}}
   Panel 3
 {{/tab-content}}
-{{#> tab-content tab-content--modifier="pf-m-padding" tab-content--attribute='id="tab4-panel"'}}
+{{#> tab-content tab-content-body--modifier="pf-m-padding" tab-content--attribute='id="tab4-panel"'}}
   Panel 4
 {{/tab-content}}
 ```
@@ -55,7 +55,7 @@ cssPrefix: pf-c-tab-content
 
 ## Documentation
 ### Overview
-Tab content should be used with the [tabs component](/documentation/core/components/tabs).
+Tab content should be used with the [tabs component](/components/tabs).
 
 ### Accessibility
 | Attribute | Applied to | Outcome |

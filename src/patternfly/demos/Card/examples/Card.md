@@ -23,7 +23,7 @@ import './Card.css'
         {{#> label-group-main}}
           {{#> label-group-list label-group-list--attribute='aria-label="Group of labels"'}}
             {{#> label-group-list-item}}
-              {{#> label label--modifier="pf-m-blue"}}
+              {{#> label label--modifier="pf-m-blue pf-m-compact"}}
                 {{#> label-icon}}
                   <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
                 {{/label-icon}}
@@ -31,7 +31,7 @@ import './Card.css'
               {{/label}}
             {{/label-group-list-item}}
             {{#> label-group-list-item}}
-              {{#> label label--modifier="pf-m-purple"}}
+              {{#> label label--modifier="pf-m-purple pf-m-compact"}}
                 {{#> label-icon}}
                   <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
                 {{/label-icon}}
@@ -39,7 +39,7 @@ import './Card.css'
               {{/label}}
             {{/label-group-list-item}}
             {{#> label-group-list-item}}
-              {{#> label label--modifier="pf-m-green"}}
+              {{#> label label--modifier="pf-m-green pf-m-compact"}}
                 {{#> label-icon}}
                   <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
                 {{/label-icon}}
@@ -47,7 +47,7 @@ import './Card.css'
               {{/label}}
             {{/label-group-list-item}}
             {{#> label-group-list-item}}
-              {{#> label label--IsOverflow="true"}}
+              {{#> label label--IsOverflow="true" label--modifier="pf-m-compact"}}
                 1 more
               {{/label}}
             {{/label-group-list-item}}
@@ -281,7 +281,7 @@ import './Card.css'
             Cluster API Address
           {{/description-list-term}}
           {{#> description-list-description}}
-            https://api2.devcluster.openshift.com
+            <a href="#">https://api2.devcluster.openshift.com</a>
           {{/description-list-description}}
         {{/description-list-group}}
         {{#> description-list-group}}
@@ -744,16 +744,20 @@ import './Card.css'
 
 ### Utilization card 3
 ```hbs
+<b>Note:</b> Custom CSS is used in this demo to align the card title and select toggle text to <code>baseline</code> alignment.
+<br><br>
 {{#> gallery gallery--modifier="pf-m-gutter" gallery--attribute='style="--pf-l-gallery--GridTemplateColumns--min: 360px;"'}}
   {{#> card card--id="utilization-card-3-example"}}
-    {{#> card-header}}
-      {{#> card-title card-title--attribute=(concat 'id="' card--id '-title1"')}}
+    {{#> card-header card-header--modifier="pf-u-align-items-flex-start"}}
+      {{#> card-title card-title--attribute=(concat 'id="' card--id '-title1" style="padding-top: 3px;"')}}
         {{#> title title--modifier="pf-m-lg" titleType="h2"}}
           Recommendations
         {{/title}}
       {{/card-title}}
-      {{#> card-actions}}
-        {{> dropdown dropdown--id=(concat card--id '-dropdown') dropdown-toggle--text="Filter" dropdown-menu--modifier="pf-m-align-right"}}
+      {{#> card-actions card-actions--modifier="pf-m-no-offset"}}
+        {{#> select id=(concat card--id '-select-dropdown') select-menu--modifier="pf-m-align-right" select-toggle--modifier="pf-m-plain"}}
+          Filter
+        {{/select}}
       {{/card-actions}}
     {{/card-header}}
     {{#> card-body}}
@@ -944,6 +948,8 @@ import './Card.css'
 
 ### Trend card 1
 ```hbs
+<b>Note:</b> Custom CSS is used in this demo to align the card title and select toggle text to <code>baseline</code> alignment.
+<br><br>
 {{#> gallery gallery--modifier="pf-m-gutter" gallery--attribute='style="--pf-l-gallery--GridTemplateColumns--min: 360px;"'}}
   {{#> card card--id="trend-card-1-example"}}
     {{#> card-header}}
@@ -957,8 +963,10 @@ import './Card.css'
           Workload
         </span>
       {{/l-flex}}
-      {{#> card-actions}}
-        {{> dropdown dropdown--id=(concat card--id '-dropdown') dropdown-toggle--text="Filter" dropdown-menu--modifier="pf-m-align-right"}}
+      {{#> card-actions card-actions--modifier="pf-m-no-offset" card-actions--attribute='style="padding-top: 1px;"'}}
+        {{#> select id=(concat card--id '-select-dropdown') select-menu--modifier="pf-m-align-right" select-toggle--modifier="pf-m-plain"}}
+          Filter
+        {{/select}}
       {{/card-actions}}
     {{/card-header}}
     {{#> card-body}}
@@ -1003,13 +1011,17 @@ import './Card.css'
 
 ### Log view
 ```hbs
+<b>Note:</b> Custom CSS is used in this demo to align the card title and select toggle text to <code>baseline</code> alignment.
+<br><br>
 {{#> gallery gallery--modifier="pf-m-gutter" gallery--attribute='style="--pf-l-gallery--GridTemplateColumns--min: 360px;"'}}
   {{#> card card--id="card-log-view-example"}}
-    {{#> card-header}}
-      {{#> card-actions}}
-        {{> dropdown dropdown--id=(concat card--id '-dropdown') dropdown-toggle--text="Most recent" dropdown-menu--modifier="pf-m-align-right"}}
+    {{#> card-header card-header--modifier="pf-u-align-items-flex-start"}}
+      {{#> card-actions card-actions--modifier="pf-m-no-offset"}}
+        {{#> select id=(concat card--id '-select-dropdown') select-menu--modifier="pf-m-align-right" select-toggle--modifier="pf-m-plain"}}
+          Most recent
+        {{/select}}
       {{/card-actions}}
-      {{#> card-title card-title--attribute=(concat 'id="' card--id '-title1"')}}
+      {{#> card-title card-title--attribute=(concat 'id="' card--id '-title1" style="padding-top: 3px;"')}}
         {{#> title title--modifier="pf-m-lg" titleType="h2"}}
           Activity
         {{/title}}
@@ -1019,50 +1031,51 @@ import './Card.css'
       {{#> description-list}}
         {{#> description-list-group}}
           {{#> description-list-term}}
-            <span class="pf-u-font-size-lg">Readiness probe failed</span>
+            Readiness probe failed
           {{/description-list-term}}
           {{#> description-list-description}}
             Readiness probe failed: Get https://10.131.0.7:5000/healthz: dial tcp 10.131.0.7:5000: connect: connection refused
           {{/description-list-description}}
           {{#> description-list-description}}
-            <date class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 11:02 am</date>
+            <time class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 11:02 am</time>
           {{/description-list-description}}
         {{/description-list-group}}
         {{#> description-list-group}}
           {{#> description-list-term}}
-            <span class="pf-u-font-size-lg">Successful assignment</span>
+            Successful assignment
           {{/description-list-term}}
           {{#> description-list-description}}
             Successfully assigned default/example to ip-10-0-130-149.ec2.internal
           {{/description-list-description}}
           {{#> description-list-description}}
-            <date class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 11:13 am</date>
+            <time class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 11:13 am</time>
           {{/description-list-description}}
         {{/description-list-group}}
         {{#> description-list-group}}
           {{#> description-list-term}}
-            <span class="pf-u-font-size-lg">Pulling image</span>
+            Pulling image
           {{/description-list-term}}
           {{#> description-list-description}}
             Pulling image "openshift/hello-openshift"
           {{/description-list-description}}
           {{#> description-list-description}}
-            <date class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 10:59 am</date>
+            <time class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 10:59 am</time>
           {{/description-list-description}}
         {{/description-list-group}}
         {{#> description-list-group}}
           {{#> description-list-term}}
-            <span class="pf-u-font-size-lg">Created container</span>
+            Created container
           {{/description-list-term}}
           {{#> description-list-description}}
             Created container hello-openshift
           {{/description-list-description}}
           {{#> description-list-description}}
-            <date class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 10:45 am</date>
+            <time class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 10:45 am</time>
           {{/description-list-description}}
         {{/description-list-group}}
       {{/description-list}}
     {{/card-body}}
+    {{> divider}}
     {{#> card-footer}}
       <a href="#">View all activity</a>
     {{/card-footer}}
@@ -1072,13 +1085,17 @@ import './Card.css'
 
 ### Events view
 ```hbs
+<b>Note:</b> Custom CSS is used in this demo to align the card title and select toggle text to <code>baseline</code> alignment.
+<br><br>
 {{#> gallery gallery--modifier="pf-m-gutter" gallery--attribute='style="--pf-l-gallery--GridTemplateColumns--min: 360px;"'}}
   {{#> card card--id="card-events-view-example"}}
-    {{#> card-header}}
-      {{#> card-actions}}
-        {{> dropdown dropdown--id=(concat card--id '-dropdown') dropdown-toggle--text="Status" dropdown-menu--modifier="pf-m-align-right"}}
+    {{#> card-header card-header--modifier="pf-u-align-items-flex-start"}}
+      {{#> card-actions card-actions--modifier="pf-m-no-offset"}}
+        {{#> select id=(concat card--id '-select-dropdown') select-menu--modifier="pf-m-align-right" select-toggle--modifier="pf-m-plain"}}
+          Status
+        {{/select}}
       {{/card-actions}}
-      {{#> card-title card-title--attribute=(concat 'id="' card--id '-title1"')}}
+      {{#> card-title card-title--attribute=(concat 'id="' card--id '-title1" style="padding-top: 3px;"')}}
         {{#> title title--modifier="pf-m-lg" titleType="h2"}}
           Events
         {{/title}}
@@ -1087,13 +1104,13 @@ import './Card.css'
     {{#> card-body}}
       {{#> description-list}}
         {{#> description-list-group}}
-          {{#> description-list-term description-list-term--modifier="pf-u-font-size-lg"}}
+          {{#> description-list-term}}
             {{#> l-flex l-flex--modifier="pf-m-nowrap"}}
               {{#> l-flex-item}}
                 <i class="fas fa-exclamation-circle pf-u-danger-color-100" aria-hidden="true"></i>
               {{/l-flex-item}}
               {{#> l-flex-item}}
-                <span>Readiness probe failed</span>
+                Readiness probe failed
               {{/l-flex-item}}
             {{/l-flex}}
           {{/description-list-term}}
@@ -1101,17 +1118,17 @@ import './Card.css'
             Readiness probe failed: Get https://10.131.0.7:5000/healthz: dial tcp 10.131.0.7:5000: connect: connection refused
           {{/description-list-description}}
           {{#> description-list-description}}
-            <date class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 11:02 am</date>
+            <time class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 11:02 am</time>
           {{/description-list-description}}
         {{/description-list-group}}
         {{#> description-list-group}}
-          {{#> description-list-term description-list-term--modifier="pf-u-font-size-lg"}}
+          {{#> description-list-term}}
             {{#> l-flex l-flex--modifier="pf-m-nowrap"}}
               {{#> l-flex-item}}
                 <i class="fas fa-check-circle pf-u-success-color-100" aria-hidden="true"></i>
               {{/l-flex-item}}
               {{#> l-flex-item}}
-                <span>Successful assignment</span>
+                Successful assignment
               {{/l-flex-item}}
             {{/l-flex}}
           {{/description-list-term}}
@@ -1119,17 +1136,17 @@ import './Card.css'
             Successfully assigned default/example to ip-10-0-130-149.ec2.internal
           {{/description-list-description}}
           {{#> description-list-description}}
-            <date class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 11:13 am</date>
+            <time class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 11:13 am</time>
           {{/description-list-description}}
         {{/description-list-group}}
         {{#> description-list-group}}
-          {{#> description-list-term description-list-term--modifier="pf-u-font-size-lg"}}
+          {{#> description-list-term}}
             {{#> l-flex l-flex--modifier="pf-m-nowrap"}}
               {{#> l-flex-item}}
                 {{#> spinner spinner--modifier="pf-m-md" spinner--attribute='aria-label="Loading"'}}Loading...{{/spinner}}
               {{/l-flex-item}}
               {{#> l-flex-item}}
-                <span>Pulling image</span>
+                Pulling image
               {{/l-flex-item}}
             {{/l-flex}}
           {{/description-list-term}}
@@ -1137,17 +1154,17 @@ import './Card.css'
             Pulling image "openshift/hello-openshift"
           {{/description-list-description}}
           {{#> description-list-description}}
-            <date class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 10:59 am</date>
+            <time class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 10:59 am</time>
           {{/description-list-description}}
         {{/description-list-group}}
         {{#> description-list-group}}
-          {{#> description-list-term description-list-term--modifier="pf-u-font-size-lg"}}
+          {{#> description-list-term}}
             {{#> l-flex l-flex--modifier="pf-m-nowrap"}}
               {{#> l-flex-item}}
                 <i class="fas fa-check-circle pf-u-success-color-100" aria-hidden="true"></i>
               {{/l-flex-item}}
               {{#> l-flex-item}}
-                <span>Created container</span>
+                Created container
               {{/l-flex-item}}
             {{/l-flex}}
           {{/description-list-term}}
@@ -1155,11 +1172,12 @@ import './Card.css'
             Created container hello-openshift
           {{/description-list-description}}
           {{#> description-list-description}}
-            <date class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 10:45 am</date>
+            <time class="pf-u-color-200 pf-u-font-size-sm">Jun 17, 10:45 am</time>
           {{/description-list-description}}
         {{/description-list-group}}
       {{/description-list}}
     {{/card-body}}
+    {{> divider}}
     {{#> card-footer}}
       <a href="#">View all events</a>
     {{/card-footer}}

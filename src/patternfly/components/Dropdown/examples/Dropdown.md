@@ -34,7 +34,6 @@ import './Dropdown.css'
 {{> dropdown dropdown--id="dropdown-kebab" dropdown-toggle--IsPlain="true"}}
 {{> dropdown dropdown--id="dropdown-kebab-expanded" dropdown--IsExpanded="true" dropdown-toggle--IsPlain="true"}}
 ```
-
 ### Kebab align right
 ```hbs
 {{> dropdown dropdown--id="dropdown-kebab-align-right" dropdown--IsExpanded="true" dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
@@ -56,6 +55,15 @@ import './Dropdown.css'
 {{> dropdown dropdown--id="dropdown-align-top-expanded" dropdown--modifier="pf-m-top" dropdown--IsExpanded="true" dropdown-toggle--text="Top"}}
 ```
 
+### Plain with text
+```hbs
+{{> dropdown dropdown--id="plain-with-text-example-disabled" dropdown-toggle--IsPlainText="true" dropdown-toggle--IsDisabled="true" dropdown-toggle--text="Custom text"}}
+&nbsp;
+{{> dropdown dropdown--id="plain-with-text-example" dropdown-toggle--IsPlainText="true" dropdown-toggle--text="Custom text"}}
+&nbsp;
+{{> dropdown dropdown--id="plain-with-text-example-expanded" dropdown-toggle--IsPlainText="true" dropdown-toggle--text="Custom text (expanded)" dropdown--IsExpanded="true"}}
+```
+
 ### Badge toggle
 ```hbs
 {{> dropdown dropdown--id="dropdown-badge-toggle" dropdown--template--Badge="true" dropdown--IsExpanded="true"}}
@@ -69,9 +77,7 @@ import './Dropdown.css'
 ### Split button (checkbox)
 ```hbs
 {{> dropdown dropdown--id="dropdown-split-button-disabled" dropdown--template--SplitButton="true" dropdown-toggle--HasCheckBox="true" dropdown-toggle--IsDisabled="true"}}
-
 {{> dropdown dropdown--id="dropdown-split-button" dropdown--template--SplitButton="true"dropdown-toggle--HasCheckBox="true"}}
-
 {{> dropdown dropdown--id="dropdown-split-button-expanded" dropdown--template--SplitButton="true" dropdown--IsExpanded="true" dropdown-toggle--HasCheckBox="true"}}
 ```
 
@@ -86,6 +92,14 @@ import './Dropdown.css'
 {{> dropdown dropdown--template--SplitButton="true" dropdown--id="dropdown-split-button-action-expanded" dropdown--IsActionButton="true" dropdown--IsExpanded="true" dropdown-toggle--HasActionButton="true"}}
 {{> dropdown dropdown--template--SplitButton="true" dropdown--id="dropdown-split-button-action-icon" dropdown--IsActionButton="true" dropdown-toggle--HasIconButton="true"}}
 {{> dropdown dropdown--template--SplitButton="true" dropdown--id="dropdown-split-button-action-icon-expanded" dropdown--IsActionButton="true" dropdown--IsExpanded="true" dropdown-menu--HasIcons="true" dropdown-toggle--HasIconButton="true"}}
+```
+
+### Split button, primary (action)
+```hbs
+{{> dropdown dropdown-toggle--modifier="pf-m-primary" dropdown--template--SplitButton="true" dropdown--id="dropdown-split-button-action-primary" dropdown--IsActionButton="true" dropdown-toggle--HasActionButton="true"}}
+{{> dropdown dropdown-toggle--modifier="pf-m-primary" dropdown--template--SplitButton="true" dropdown--id="dropdown-split-button-action-primary-expanded" dropdown--IsActionButton="true" dropdown--IsExpanded="true" dropdown-toggle--HasActionButton="true"}}
+{{> dropdown dropdown-toggle--modifier="pf-m-primary" dropdown--template--SplitButton="true" dropdown--id="dropdown-split-button-action-primary-icon" dropdown--IsActionButton="true" dropdown-toggle--HasIconButton="true"}}
+{{> dropdown dropdown-toggle--modifier="pf-m-primary" dropdown--template--SplitButton="true" dropdown--id="dropdown-split-button-action-primary-icon-expanded" dropdown--IsActionButton="true" dropdown--IsExpanded="true" dropdown-menu--HasIcons="true" dropdown-toggle--HasIconButton="true"}}
 ```
 
 ### With groups
@@ -119,6 +133,14 @@ The dropdown panel is provided for flexibility in allowing various content withi
 ```hbs
 {{> dropdown dropdown--id="dropdown-primary-toggle" dropdown-toggle--modifier="pf-m-primary" dropdown-toggle--text="Collapsed dropdown"}}
 {{> dropdown dropdown--id="dropdown-primary-toggle-expanded" dropdown--IsExpanded="true" dropdown-toggle--modifier="pf-m-primary" dropdown-toggle--text="Expanded dropdown"}}
+{{> dropdown dropdown--id="dropdown-primary-toggle-disabled" dropdown-toggle--modifier="pf-m-primary" dropdown-toggle--text="Disabled" dropdown-toggle--IsDisabled="true"}}
+```
+
+### Secondary toggle
+```hbs
+{{> dropdown dropdown--id="dropdown-secondary-toggle" dropdown-toggle--modifier="pf-m-secondary" dropdown-toggle--text="Collapsed dropdown"}}
+{{> dropdown dropdown--id="dropdown-secondary-toggle-expanded" dropdown--IsExpanded="true" dropdown-toggle--modifier="pf-m-secondary" dropdown-toggle--text="Expanded dropdown"}}
+{{> dropdown dropdown--id="dropdown-secondary-toggle-disabled" dropdown-toggle--modifier="pf-m-secondary" dropdown-toggle--text="Disabled" dropdown-toggle--IsDisabled="true"}}
 ```
 
 ### Dropdown with image and text
@@ -174,13 +196,15 @@ The dropdown menu can contain either links or buttons, depending on the expected
 | `.pf-c-dropdown__group-title` | `<h1>` | Defines the title for a group of items in the dropdown menu. |
 | `.pf-m-expanded` | `.pf-c-dropdown` | Modifies for the expanded state. |
 | `.pf-m-top` | `.pf-c-dropdown` | Modifies to display the menu above the toggle. |
-| `.pf-m-align-left{-on-[breakpoint]}` | `.pf-c-dropdown__menu` | Modifies to display the menu aligned to the left edge of the toggle. |
-| `.pf-m-align-right{-on-[breakpoint]}` | `.pf-c-dropdown__menu` | Modifies to display the menu aligned to the right edge of the toggle. |
+| `.pf-m-align-left{-on-[breakpoint]}` | `.pf-c-dropdown__menu` | Modifies to display the menu aligned to the left edge of the toggle at optional [breakpoint](/developer-resources/global-css-variables#breakpoint-variables-and-class-suffixes). |
+| `.pf-m-align-right{-on-[breakpoint]}` | `.pf-c-dropdown__menu` | Modifies to display the menu aligned to the right edge of the toggle at optional [breakpoint](/developer-resources/global-css-variables#breakpoint-variables-and-class-suffixes). |
 | `.pf-m-split-button` | `.pf-c-dropdown__toggle` | Modifies the dropdown toggle area to allow for interactive elements. |
 | `.pf-m-action` | `.pf-c-dropdown__toggle.pf-m-split-button` | Modifies the dropdown toggle for when an action is placed beside a toggle button in a split button dropdown. |
 | `.pf-m-text` | `.pf-c-dropdown__menu-item` | Modifies a menu item to be non-interactive text. |
 | `.pf-m-plain` | `.pf-c-dropdown__toggle` | Modifies to display the toggle with no border. |
+| `.pf-m-text` | `.pf-c-dropdown__toggle` | Modifies the dropdown toggle for the text variation. |
 | `.pf-m-primary` | `.pf-c-dropdown__toggle` | Modifies to display the toggle with primary styles. |
+| `.pf-m-secondary` | `.pf-c-dropdown__toggle` | Modifies to display the toggle with secondary styles. |
 | `.pf-m-full-height` | `.pf-c-dropdown` | Modifies a dropdown to full height of parent. See masthead for use. |
 | `.pf-m-disabled` | `a.pf-c-dropdown__menu-item` | Modifies to display the menu item as disabled. This applies to `a.pf-c-dropdown__menu-item` and should not be used in lieu of the `disabled` attribute on `button.pf-c-dropdown__menu-item`. |
 | `.pf-m-disabled` | `div.pf-c-dropdown__toggle` | Modifies to display the dropdown toggle as disabled. This applies to `div.pf-c-dropdown__toggle` and should not be used in lieu of the `disabled` attribute on `button.pf-c-dropdown__toggle`. When this is used, `disabled` should also be added to any form elements in `div.pf-c-dropdown__toggle`. |

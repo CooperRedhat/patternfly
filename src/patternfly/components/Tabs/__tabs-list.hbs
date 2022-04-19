@@ -7,6 +7,8 @@ __tabs-list--IsScrollable: bool
 __tabs-list--IsShort: bool
 __tabs-list--IsLong: bool
 __tabs-item--NoText: bool
+__tabs-list--HasClose: bool
+__tabs-list--IsCloseDisabled: bool
 ------------------------------------
 --}}
 
@@ -20,7 +22,7 @@ __tabs-item--NoText: bool
   {{/if}}
 {{/unless}}
 
-{{#> tabs-list}}
+{{#> tabs-list tabs-item--IsAction=__tabs-list--IsAction tabs-item--HasClose=__tabs-list--HasClose}}
   {{> __tabs-item
     __tabs-item--id="users"
     __tabs-item--icon-name="fas fa-users"
@@ -42,25 +44,51 @@ __tabs-item--NoText: bool
     }}
 
   {{#unless __tabs-list--IsShort}}
-    {{> __tabs-item
-      __tabs-item--id="server"
-      __tabs-item--icon-name="server"
-      __tabs-item--aria-label="Server"
-      __tabs-item--text="Server"
-      }}
-    {{> __tabs-item
-      __tabs-item--id="system"
-      __tabs-item--icon-name="laptop"
-      __tabs-item--aria-label="System"
-      __tabs-item--text="System"
-      }}
+    {{#if __tabs-list--IsDisabled}}
+      {{> __tabs-item
+        __tabs-item--id="disabled"
+        __tabs-item--icon-name="server"
+        __tabs-item--aria-label="Disabled"
+        __tabs-item--text="Disabled"
+        tabs-link--IsDisabled="true"
+        }}
+      {{> __tabs-item
+        __tabs-item--id="aria-disabled"
+        __tabs-item--icon-name="laptop"
+        __tabs-item--aria-label="ARIA disabled"
+        __tabs-item--text="ARIA disabled"
+        tabs-link--IsAriaDisabled="true"
+        }}
+        {{#if __tabs-list--IsCloseDisabled}}
+          {{> __tabs-item
+            __tabs-item--id="close-disabled"
+            __tabs-item--icon-name="laptop"
+            __tabs-item--aria-label="Close disabled"
+            __tabs-item--text="Close disabled"
+            tabs-link--IsDisabled="true"
+            tabs-item-close-button--attribute="disabled"
+            }}
+        {{/if}}
+    {{else}}
+      {{> __tabs-item
+        __tabs-item--id="server"
+        __tabs-item--icon-name="server"
+        __tabs-item--aria-label="Server"
+        __tabs-item--text="Server"
+        }}
+      {{> __tabs-item
+        __tabs-item--id="system"
+        __tabs-item--icon-name="laptop"
+        __tabs-item--aria-label="System"
+        __tabs-item--text="System"
+        }}
+    {{/if}}
     {{> __tabs-item
       __tabs-item--id="network-wired"
       __tabs-item--icon-name="project-diagram"
       __tabs-item--aria-label="Network"
       __tabs-item--text="Network"
       }}
-
     {{#if __tabs-list--IsLong}}
       {{> __tabs-item
         __tabs-item--id="cloud"
@@ -93,3 +121,7 @@ __tabs-item--NoText: bool
     {{> tabs-scroll-button tabs-scroll-button--IsRight="true" tabs-scroll-button--IsDisabled="true" tabs-scroll-button--IsHidden="true"}}
   {{/if}}
 {{/unless}}
+
+{{#if __tabs-list--HasAddTab}}
+  {{> tabs-add}}
+{{/if}}

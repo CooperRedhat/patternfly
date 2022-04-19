@@ -9,11 +9,11 @@ section: components
 {{#> form form--id="form-demo-basic"}}
   {{#> form-group form-group--id="-name"}}
     {{#> form-group-label}}
-      {{#> form-label form-label--attribute=(concat 'for="' form--id form-group--id '"') required="true"}}Name{{/form-label}}
+      {{#> form-label form-label--attribute=(concat 'for="' form--id form-group--id '"') required="true"}}Full name{{/form-label}}
     {{/form-group-label}}
     {{#> form-group-control}}
       {{#> form-control controlType="input" input="true" form-control--attribute=(concat 'required type="text" id="' form--id form-group--id '" name="' form--id form-group--id '" aria-describedby="' form--id form-group--id '-helper"')}}{{/form-control}}
-      {{#> form-helper-text form-helper-text--attribute=(concat 'id="' form--id form-group--id '-helper" aria-live="polite"')}}Please provide your full name{{/form-helper-text}}
+      {{#> form-helper-text form-helper-text--attribute=(concat 'id="' form--id form-group--id '-helper" aria-live="polite"')}}Include your middle name if you have one.{{/form-helper-text}}
     {{/form-group-control}}
   {{/form-group}}
   {{#> form-group form-group--id="-email"}}
@@ -27,7 +27,7 @@ section: components
   {{#> form-group form-group--id="-phone"}}
     {{#> form-group-label}}
       {{#> form-label form-label--attribute=(concat 'for="' form--id form-group--id '"') required="true"}}Phone number{{/form-label}}
-      {{> form-group-label-help}}
+      {{> form-group-label-help form-group-label-help--aria-label="More information for phone number field"  form-group-label-help--aria-describedby=(concat form--id form-group--id)}}
     {{/form-group-label}}
     {{#> form-group-control}}
       {{#> form-control controlType="input" input="true" form-control--attribute=(concat 'required type="tel" placeholder="Example, (555) 555-5555" id="' form--id form-group--id '" name="' form--id form-group--id '" placeholder="555-555-5555"')}}{{/form-control}}
@@ -75,7 +75,7 @@ section: components
     {{#> form-group-control}}
       {{#> form-actions}}
         {{#> button button--modifier="pf-m-primary" button--IsSubmit="true"}}
-          Submit form
+          Submit
         {{/button}}
         {{#> button button--modifier="pf-m-link"}}
           Cancel
@@ -91,12 +91,12 @@ section: components
 {{#> form form--modifier="pf-m-horizontal" form--id="form-demo-horizontal"}}
   {{#> form-group form-group--modifier="-name"}}
     {{#> form-group-label}}
-      {{#> form-label form-label--attribute=(concat 'for="' form--id form-group--id '"') required="true"}}Name{{/form-label}}
+      {{#> form-label form-label--attribute=(concat 'for="' form--id form-group--id '"') required="true"}}Full name{{/form-label}}
     {{/form-group-label}}
     {{#> form-group-control}}
       {{#> form-control controlType="input" input="true" form-control--attribute=(concat 'required type="text" id="' form--id form-group--id '" name="' form--id form-group--id '" aria-describedby="' form--id form-group--id '-helper"')}}
       {{/form-control}}
-      {{#> form-helper-text form-helper-text--attribute=(concat 'id="' form--id form-group--id '-helper" aria-live="polite"')}}Please provide your full name{{/form-helper-text}}
+      {{#> form-helper-text form-helper-text--attribute=(concat 'id="' form--id form-group--id '-helper" aria-live="polite"')}}Include your middle name if you have one.{{/form-helper-text}}
     {{/form-group-control}}
   {{/form-group}}
   {{#> form-group form-group--id="-email"}}
@@ -120,7 +120,7 @@ section: components
    {{#> form-group form-group--IsCheckGroup="true" form-group--id="-contact"}}
     {{#> form-group-label form-group-label--modifier="pf-m-no-padding-top"}}
       {{#> form-label }}How can we contact you?{{/form-label}}
-      {{> form-group-label-help}}
+      {{> form-group-label-help form-group-label-help--aria-label="More information for contact field" form-group-label-help--aria-describedby=(concat form--id form-group--id '-legend')}}
     {{/form-group-label}}
     {{#> form-group-control form-group-control--modifier="pf-m-stack"}}
       {{#> check}}
@@ -141,7 +141,7 @@ section: components
     {{#> form-group-control}}
       {{#> form-actions}}
         {{#> button button--modifier="pf-m-primary" button--IsSubmit="true"}}
-          Submit form
+          Submit
         {{/button}}
         {{#> button button--modifier="pf-m-link"}}
           Cancel
@@ -158,11 +158,11 @@ section: components
   {{#> grid grid--modifier="pf-m-all-6-col-on-md pf-m-gutter"}}
     {{#> form-group form-group--id="-name"}}
       {{#> form-group-label}}
-        {{#> form-label form-label--attribute=(concat 'for="' form--id form-group--id '"') required="true"}}Name{{/form-label}}
+        {{#> form-label form-label--attribute=(concat 'for="' form--id form-group--id '"') required="true"}}Full name{{/form-label}}
       {{/form-group-label}}
       {{#> form-group-control}}
         {{#> form-control controlType="input" input="true" form-control--attribute=(concat 'required type="text" id="' form--id form-group--id '" name="' form--id form-group--id '" aria-describedby="' form--id form-group--id '-helper"')}}{{/form-control}}
-        {{#> form-helper-text form-helper-text--attribute=(concat 'id="' form--id form-group--id '-helper" aria-live="polite"')}}Please provide your full name{{/form-helper-text}}
+        {{#> form-helper-text form-helper-text--attribute=(concat 'id="' form--id form-group--id '-helper" aria-live="polite"')}}Include your middle name if you have one.{{/form-helper-text}}
       {{/form-group-control}}
     {{/form-group}}
     {{#> form-group form-group--id="-title"}}
@@ -212,7 +212,7 @@ section: components
         {{/form-group-label}}
         {{#> form-group-control}}
           {{#> form-control controlType="select" form-control--attribute=(concat 'id="' form--id form-group--id '" name="' form--id form-group--id '"')}}
-            <option value="" selected>Please choose</option>
+            <option value="" selected>Select one</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -271,7 +271,7 @@ section: components
       {{#> form-group-control}}
         {{#> form-actions}}
           {{#> button button--modifier="pf-m-primary" button--IsSubmit="true"}}
-            Submit form
+            Submit
           {{/button}}
           {{#> button button--modifier="pf-m-link"}}
             Cancel
@@ -286,14 +286,14 @@ section: components
 ### Sections with repeatable fields
 ```hbs
 {{#> form form--id="form-demo-sections-repeatable-fields"}}
-  {{#> form-section}}
+  {{#> form-section form-section--id=(concat form--id '-section1')}}
     {{#> form-section-title}}
       General settings
     {{/form-section-title}}
     {{#> form-group form-group--id="-clientid"}}
       {{#> form-group-label}}
         {{#> form-label form-label--attribute=(concat 'for="' form--id form-group--id '"') required="true"}}Client ID{{/form-label}}
-        {{> form-group-label-help}}
+        {{> form-group-label-help form-group-label-help--aria-label="More information for client id field" form-group-label-help--aria-describedby=(concat form--id form-group--id)}}
       {{/form-group-label}}
       {{#> form-group-control}}
         {{#> form-control controlType="input" input="true" form-control--attribute=(concat 'required type="text" id="' form--id form-group--id '" name="' form--id form-group--id '"')}}{{/form-control}}
@@ -301,8 +301,8 @@ section: components
     {{/form-group}}
     {{#> form-group form-group--id="-name"}}
       {{#> form-group-label}}
-        {{#> form-label form-label--attribute=(concat 'for="' form--id form-group--id '"') required="true"}}Name{{/form-label}}
-        {{> form-group-label-help}}
+        {{#> form-label form-label--attribute=(concat 'for="' form--id form-group--id '"') required="true"}}Full name{{/form-label}}
+        {{> form-group-label-help form-group-label-help--aria-label="More information for full name field" form-group-label-help--aria-describedby=(concat form--id form-group--id)}}
       {{/form-group-label}}
       {{#> form-group-control}}
         {{#> form-control controlType="input" input="true" form-control--attribute=(concat 'required type="text" id="' form--id form-group--id '" name="' form--id form-group--id '"')}}{{/form-control}}
@@ -311,21 +311,21 @@ section: components
     {{#> form-group form-group--id="-description"}}
       {{#> form-group-label}}
         {{#> form-label form-label--attribute=(concat 'for="' form--id form-group--id '"') required="true"}}Description{{/form-label}}
-        {{> form-group-label-help}}
+        {{> form-group-label-help form-group-label-help--aria-label="More information for description field" form-group-label-help--aria-describedby=(concat form--id form-group--id)}}
       {{/form-group-label}}
       {{#> form-group-control}}
         {{#> form-control controlType="input" input="true" form-control--attribute=(concat 'required type="text" id="' form--id form-group--id '" name="' form--id form-group--id '"')}}{{/form-control}}
       {{/form-group-control}}
     {{/form-group}}
   {{/form-section}}
-  {{#> form-section}}
+  {{#> form-section form-section--id=(concat form--id '-section2')}}
     {{#> form-section-title}}
       Access settings
     {{/form-section-title}}
     {{#> form-group form-group--id="-rooturl"}}
       {{#> form-group-label}}
         {{#> form-label form-label--attribute=(concat 'for="' form--id form-group--id '"') required="true"}}Root URL{{/form-label}}
-        {{> form-group-label-help}}
+        {{> form-group-label-help form-group-label-help--aria-label="More information for root URL field" form-group-label-help--aria-describedby=(concat form--id form-group--id)}}
       {{/form-group-label}}
       {{#> form-group-control}}
         {{#> form-control controlType="input" input="true" form-control--attribute=(concat 'required type="text" id="' form--id form-group--id '" name="' form--id form-group--id '"')}}{{/form-control}}
@@ -334,7 +334,7 @@ section: components
     {{#> form-group form-group--id="-uris"}}
       {{#> form-group-label}}
         {{#> form-label form-label--attribute=(concat 'id="' form--id form-group--id '"') required="true"}}Valid redirect URIs{{/form-label}}
-        {{> form-group-label-help}}
+        {{> form-group-label-help form-group-label-help--aria-label="More information for valid redirect URIs field" form-group-label-help--aria-describedby=(concat form--id form-group--id)}}
       {{/form-group-label}}
       {{#> form-group-control form-group-control--modifier="pf-m-stack"}}
         {{#> input-group}}
@@ -366,7 +366,7 @@ section: components
     {{#> form-group form-group--id="-home-url"}}
       {{#> form-group-label}}
         {{#> form-label form-label--attribute=(concat 'for="' form--id form-group--id '"') required="true"}}Home URL{{/form-label}}
-        {{> form-group-label-help}}
+        {{> form-group-label-help form-group-label-help--aria-label="More information for home URL field" form-group-label-help--aria-describedby=(concat form--id form-group--id)}}
       {{/form-group-label}}
       {{#> form-group-control}}
         {{#> form-control controlType="input" input="true" form-control--attribute=(concat 'required type="text" id="' form--id form-group--id '" name="' form--id form-group--id '"')}}{{/form-control}}

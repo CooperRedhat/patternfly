@@ -429,9 +429,8 @@ cssPrefix: pf-c-label-group
 {{/label-group}}
 ```
 
-In addition to [label documentation](../label#editable), dynamic label groups should be managed with JavaScript
-* `.pf-c-label-group.pf-m-editable` onClick event should (excluding labels within):
-  * Set focus on `.pf-c-label-group__textarea`
+In addition to the JavaScript management of [editable labels](/components/label#editable), dynamic label groups also need:
+* `.pf-c-label-group.pf-m-editable` onClick event should (excluding labels within) set focus on `.pf-c-label-group__textarea`
 
 ### Editable labels, dynamic label group
 ``` hbs
@@ -517,7 +516,7 @@ In addition to [label documentation](../label#editable), dynamic label groups sh
 {{/label-group}}
 ```
 
-### Mixed labels, dynamic label group
+### Mixed labels (static / editable), dynamic label group
 ``` hbs
 {{#> label-group label-group--id="static-labels-editable-group-example" label-group--IsEditable="true"}}
   {{#> label-group-main}}
@@ -555,6 +554,115 @@ In addition to [label documentation](../label#editable), dynamic label groups sh
 {{/label-group}}
 ```
 
+### Compact labels
+```hbs
+{{#> label-group label-group--id="label-group-compact"}}
+  {{#> label-group-main}}
+    {{#> label-group-list label-group-list--attribute='aria-label="Group of labels"'}}
+      {{#> label-group-list-item}}
+        {{#> label label--modifier="pf-m-compact"}}
+          {{#> label-icon}}
+            <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+          {{/label-icon}}
+          Label
+        {{/label}}
+      {{/label-group-list-item}}
+      {{#> label-group-list-item}}
+        {{#> label label--modifier="pf-m-compact pf-m-blue"}}
+          {{#> label-icon}}
+            <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+          {{/label-icon}}
+          Label 2
+        {{/label}}
+      {{/label-group-list-item}}
+      {{#> label-group-list-item}}
+        {{#> label label--modifier="pf-m-compact pf-m-green"}}
+          {{#> label-icon}}
+            <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+          {{/label-icon}}
+          Label 3
+        {{/label}}
+      {{/label-group-list-item}}
+    {{/label-group-list}}
+  {{/label-group-main}}
+{{/label-group}}
+```
+
+### Compact labels, overflow
+```hbs
+{{#> label-group label-group--id="label-group-compact-overflow"}}
+  {{#> label-group-main}}
+    {{#> label-group-list label-group-list--attribute='aria-label="Group of labels"'}}
+      {{#> label-group-list-item}}
+        {{#> label label--modifier="pf-m-compact"}}
+          {{#> label-icon}}
+            <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+          {{/label-icon}}
+          Label
+        {{/label}}
+      {{/label-group-list-item}}
+      {{#> label-group-list-item}}
+        {{#> label label--modifier="pf-m-compact pf-m-blue"}}
+          {{#> label-icon}}
+            <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+          {{/label-icon}}
+          Label 2
+        {{/label}}
+      {{/label-group-list-item}}
+      {{#> label-group-list-item}}
+        {{#> label label--modifier="pf-m-compact pf-m-green"}}
+          {{#> label-icon}}
+            <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+          {{/label-icon}}
+          Label 3
+        {{/label}}
+      {{/label-group-list-item}}
+      {{#> label-group-list-item}}
+        {{#> label label--IsOverflow="true" label--modifier="pf-m-compact"}}
+          3 more
+        {{/label}}
+      {{/label-group-list-item}}
+    {{/label-group-list}}
+  {{/label-group-main}}
+{{/label-group}}
+```
+
+### Compact labels, vertical
+```hbs
+{{#> label-group label-group--id="label-group-compact-vertical" label-group--modifier="pf-m-vertical"}}
+  {{#> label-group-main}}
+    {{#> label-group-list label-group-list--attribute='aria-label="Group of labels"'}}
+      {{#> label-group-list-item}}
+        {{#> label label--modifier="pf-m-compact"}}
+          {{#> label-icon}}
+            <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+          {{/label-icon}}
+          Label
+        {{/label}}
+      {{/label-group-list-item}}
+      {{#> label-group-list-item}}
+        {{#> label label--modifier="pf-m-compact pf-m-blue"}}
+          {{#> label-icon}}
+            <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+          {{/label-icon}}
+          Label 2
+        {{/label}}
+      {{/label-group-list-item}}
+      {{#> label-group-list-item}}
+        {{#> label label--modifier="pf-m-compact pf-m-green"}}
+          {{#> label-icon}}
+            <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+          {{/label-icon}}
+          Label 3
+        {{/label}}
+      {{/label-group-list-item}}
+    {{/label-group-list}}
+  {{/label-group-main}}
+{{/label-group}}
+```
+
+## Documentation
+
 ### Accessibility
 | Attribute | Applied to | Outcome |
 | -- | -- | -- |
@@ -575,7 +683,7 @@ In addition to [label documentation](../label#editable), dynamic label groups sh
 | `.pf-c-label-group__textarea` | `<textarea>` | Initiates the textarea element in the label group. **Required when label group is editable** |
 | `.pf-c-label-group__label` | `<span>` | Initiates the label to be used in the label group. |
 | `.pf-c-label-group__close` | `<div>` | Initiates the container used for the button to remove the label group. |
-| `.pf-m-editable` | `.pf-c-label-group` | Modifies the label group to support editable styling. |
 | `.pf-c-button` | `.pf-c-label-group__close <button>` | Initiates the button used to remove the label group. |
+| `.pf-m-editable` | `.pf-c-label-group` | Modifies the label group to support editable styling. |
 | `.pf-m-category` | `.pf-c-label-group` | Modifies the label group to support category styling. |
 | `.pf-m-textarea` | `.pf-c-label-group__list-item` | Modifies the label group list item to support textarea. |

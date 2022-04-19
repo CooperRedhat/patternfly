@@ -295,7 +295,6 @@ import './Label.css'
 {{/label}}
 ```
 
-
 ### Outline
 ```hbs
 {{#> label label--id="outline-grey" label--modifier="pf-m-outline"}}
@@ -521,35 +520,80 @@ import './Label.css'
 {{/label}}
 ```
 
+### Compact
+```hbs
+{{#> label label--id="default-compact" label--modifier="pf-m-compact"}}
+  Compact
+{{/label}}
+
+{{#> label label--id="compact-icon" label--modifier="pf-m-compact"}}
+  {{#> label-icon}}
+    <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+  {{/label-icon}}
+  Compact icon
+{{/label}}
+
+{{#> label label--id="compact-close" label--modifier="pf-m-compact" label--isRemovable="true"}}
+  Compact removable
+{{/label}}
+
+{{#> label label--id="compact-icon-close" label--modifier="pf-m-compact" label--isRemovable="true"}}
+  {{#> label-icon}}
+    <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+  {{/label-icon}}
+  Compact icon removable
+{{/label}}
+
+{{#> label label--id="compact-link" label--modifier="pf-m-compact" label-content--IsLink="true"}}
+  Compact link
+{{/label}}
+
+{{#> label label--id="compact-link-close" label--modifier="pf-m-compact" label-content--IsLink="true" label--isRemovable="true"}}
+  Compact link removable
+{{/label}}
+
+{{#> label label--id="compact-icon-close-truncate" label--modifier="pf-m-compact" label--isRemovable="true"}}
+  {{#> label-icon}}
+    <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+  {{/label-icon}}
+  {{#> label-text}}
+    Compact label with icon that truncates
+  {{/label-text}}
+{{/label}}
+
+```
+
 ### Overflow
+This style of label is used to indicate overflow within a label group.
 ```hbs
 {{#> label label--id="overflow" label--IsOverflow="true"}}
   Overflow
 {{/label}}
 ```
 
-### Editable label behavior must be handled with JavaScript.
-* `.pf-c-inline-edit__editable-text` onClick event should:
+
+### Editable
+**Note: Editable label behavior must be handled with JavaScript.**
+* `.pf-c-label__editable-text` onClick event should:
   * Set `.pf-m-editable-active` on `.pf-c-label`
-  * Set `contenteditable="true"` on `.pf-c-inline-edit__editable-text`
+  * Change `.pf-c-label__editable-text`from a button to an input
 * Return keypress, when content is editable, should:
   * Be captured to prevent line wrapping and save updates to label text
   * Remove `.pf-m-editable-active` from `.pf-c-label`
-  * Remove `contenteditable="true"` from `.pf-c-inline-edit__editable-text`
+  * Change `.pf-c-label__editable-text` back from an input to a button and set the `currvalue` of the button to the contents of the input
 * Esc keypress, when content is editable, should:
   * Undo any update to label text
   * Remove `.pf-m-editable-active` from `.pf-c-label`
-  * Remove `contenteditable="true"` from `.pf-c-inline-edit__editable-text`
+  * Change `.pf-c-label__editable-text` back to a button
 
-### Editable
-``` hbs
-{{#> label label--id="editable-label" label--IsEditable="true" label--isRemovable="true" label--modifier="pf-m-blue"}}
-  Editable label
-{{/label}}
+``` hbs isBeta
+{{#> label label--id="editable-label" label--IsEditable="true" label--isRemovable="true" label--modifier="pf-m-blue"}}Editable label{{/label}}
 
-{{#> label label--id="editable-label-active" label--IsEditable="true" label--IsEditableActive="true" label--modifier="pf-m-blue"}}
-  Editable active
-{{/label}}
+{{#> label label--id="editable-label-active" label--IsEditable="true" label--IsEditableActive="true" label--modifier="pf-m-blue"}}Editable active{{/label}}
+
+{{#> label label--id="compact-editable-label" label--modifier="pf-m-compact pf-m-blue" label--IsEditable="true" label--isRemovable="true" }}Compact editable label{{/label}}
+
+{{#> label label--id="compact-editable-label-active" label--modifier="pf-m-compact pf-m-blue" label--IsEditable="true" label--IsEditableActive="true"}}Compact editable active{{/label}}
 ```
 
 ## Documentation
@@ -561,7 +605,9 @@ import './Label.css'
 | `.pf-c-label__content` | `<span>`, `<a>`, `<button>` | Iniates a label content. Use as an `<a>` element if the label serves as a link. Use a `<button>` if the label serves as an action. **Required** |
 | `.pf-c-label__icon` | `<span>` | Initiates a label icon. |
 | `.pf-c-label__text` | `<span>` | Initiates label text. |
+| `.pf-c-label__editable-text` | `<button>`, `<input>` | Initiates editable label text. See the [editable](#editable) example for details about handling behavior in Javascript.|
 | `.pf-m-outline` | `.pf-c-label` | Modifies label for outline styles. |
+| `.pf-m-compact` | `.pf-c-label` | Modifies label for compact styles. |
 | `.pf-m-overflow` | `.pf-c-label` | Modifies label for overflow styles for use in a label group. |
 | `.pf-m-blue` | `.pf-c-label` | Modifies the label to have blue colored styling. |
 | `.pf-m-green` | `.pf-c-label` | Modifies the label to have green colored styling. |

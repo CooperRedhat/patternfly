@@ -56,7 +56,7 @@ function compileSASS0(srcFiles) {
       // Not kosher, but prevents path problems with watchSASS
       const outPath = path.join(chunk._cwd, 'dist', relativePath.replace(/\.scss$/, '.css'));
       fs.ensureFileSync(outPath);
-      fs.writeFileSync(outPath, cssString);
+      if (cssString) fs.writeFileSync(outPath, cssString);
       cb2(null, chunk);
     })
   );
@@ -116,11 +116,15 @@ function watchSASS(sassFiles) {
   watcher.on('add', compileDocSASS);
 }
 
+const postcssOptions = {
+  preset: ['default', { mergeLonghand: false }]
+};
+
 function minifyCSS() {
   return src('./dist/patternfly.css')
     .pipe(rename('patternfly.min.css'))
     .pipe(sourcemaps.init())
-    .pipe(postcss([cssnano()]))
+    .pipe(postcss([cssnano(postcssOptions)]))
     .pipe(sourcemaps.write('.'))
     .pipe(dest('dist'));
 }

@@ -1,4 +1,4 @@
-@import "./data-list-grid.scss";
+@import "./data-list-grid";
 
 .pf-c-data-list {
   --pf-c-data-list--FontSize: 1em; // inherit font-size, update this to global variable at breaking change
@@ -147,7 +147,6 @@
   --pf-c-data-list--m-compact__cell-cell--md--PaddingTop: var(--pf-global--spacer--sm);
   --pf-c-data-list--m-compact__cell--cell--MarginRight: var(--pf-global--spacer--md);
   --pf-c-data-list--m-compact__item-control--PaddingTop: var(--pf-global--spacer--sm);
-  --pf-c-data-list--m-compact__item-control--PaddingBottom: 0;
   --pf-c-data-list--m-compact__item-control--PaddingBottom: var(--pf-global--spacer--sm);
   --pf-c-data-list--m-compact__item-control--MarginRight: var(--pf-global--spacer--md);
   --pf-c-data-list--m-compact__item-action--PaddingTop: var(--pf-global--spacer--sm);
@@ -368,7 +367,6 @@
     --pf-c-data-list__item-draggable-button-icon--Color: var(--pf-c-data-list__item-draggable-button--m-disabled__draggable-icon--Color);
 
     pointer-events: none;
-    cursor: none;
   }
 
   .pf-c-data-list__item-draggable-icon {

@@ -103,8 +103,7 @@ beta: true
 ```hbs
 {{#> tree-view}}
   {{#> tree-view-search}}
-    {{#> form-control controlType="input" input="true" form-control--modifier="pf-m-search" form-control--attribute='type="search" id="input-search" name="search-input" aria-label="Search input example"'}}
-    {{/form-control}}
+    {{> search-input}}
   {{/tree-view-search}}
   {{> divider}}
   {{#> tree-view-list tree-view-list--IsRoot="true"}}
@@ -281,7 +280,7 @@ beta: true
 
 ```hbs
 {{#> tree-view}}
-  {{#> tree-view-list tree-view-node--IsRoot="true"}}
+  {{#> tree-view-list tree-view-list--IsRoot="true"}}
     {{#> tree-view-list-item tree-view-list-item--IsExpandable="true" tree-view-list-item--IsExpanded="true"}}
       {{#> tree-view-content}}
         {{> tree-view-node tree-view-node--HasFolderIcon="true" tree-view-node--text="Application launcher"}}
@@ -363,7 +362,7 @@ beta: true
 
 ```hbs
 {{#> tree-view}}
-  {{#> tree-view-list tree-view-node--IsRoot="true"}}
+  {{#> tree-view-list tree-view-list--IsRoot="true"}}
     {{#> tree-view-list-item tree-view-list-item--IsExpandable="true" tree-view-list-item--IsExpanded="true"}}
       {{#> tree-view-content}}
         {{#> tree-view-node tree-view-node--text="Application launcher"}}
@@ -499,7 +498,7 @@ beta: true
 
 ```hbs
 {{#> tree-view}}
-  {{#> tree-view-list tree-view-node--IsRoot="true"}}
+  {{#> tree-view-list tree-view-list--IsRoot="true"}}
     {{#> tree-view-list-item tree-view-list-item--IsExpandable="true" tree-view-list-item--IsExpanded="true"}}
       {{#> tree-view-content}}
         {{> tree-view-node tree-view-node--text="Application launcher"}}
@@ -814,6 +813,7 @@ beta: true
 | `.pf-c-tree-view__content` | `<div>` | Initiates a tree view node. **Required** |
 | `.pf-c-tree-view__node` | `<button>`, `<a>` | Initiates a tree view node. **Required** |
 | `.pf-c-tree-view__node-container` | `<span>` | Initiates a tree view node container. **Required for compact variant** |
+| `.pf-c-tree-view__node-content` | `<span>` | Initiates a tree view node content container used to stack elements. |
 | `.pf-c-tree-view__node-count` | `<span>` | Initiates a tree view node count. |
 | `.pf-c-tree-view__node-toggle` | `<div>` | Initiates a tree view toggle. |
 | `.pf-c-tree-view__node-toggle-button` | `<button>` | Initiates a tree view toggle button. |

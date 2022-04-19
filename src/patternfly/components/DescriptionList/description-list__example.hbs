@@ -1,15 +1,23 @@
 {{#> description-list}}
   {{#> description-list-group}}
     {{#> description-list-term}}
-      Name
+      {{#> description-list-text}}
+        Name
+      {{/description-list-text}}
     {{/description-list-term}}
     {{#> description-list-description}}
-      example
+      {{#if description-list--IsLongDescription}}
+        This is a long description that should wrap to multiple lines in a multi-column layout.
+      {{else}}
+        example
+      {{/if}}
     {{/description-list-description}}
   {{/description-list-group}}
   {{#> description-list-group}}
     {{#> description-list-term}}
-      Namespace
+      {{#> description-list-text}}
+        Namespace
+      {{/description-list-text}}
     {{/description-list-term}}
     {{#> description-list-description}}
       <a href="#">mary-test</a>
@@ -17,7 +25,9 @@
   {{/description-list-group}}
   {{#> description-list-group}}
     {{#> description-list-term}}
-      Labels
+      {{#> description-list-text}}
+        Labels
+      {{/description-list-text}}
     {{/description-list-term}}
     {{#> description-list-description}}
       example
@@ -25,7 +35,9 @@
   {{/description-list-group}}
   {{#> description-list-group}}
     {{#> description-list-term}}
-      Pod selector
+      {{#> description-list-text}}
+        Pod selector
+      {{/description-list-text}}
     {{/description-list-term}}
     {{#> description-list-description}}
       {{#> button button--modifier="pf-m-link pf-m-inline"}}
@@ -38,7 +50,9 @@
   {{/description-list-group}}
   {{#> description-list-group}}
     {{#> description-list-term}}
-      Annotation
+      {{#> description-list-text}}
+        Annotation
+      {{/description-list-text}}
     {{/description-list-term}}
     {{#> description-list-description}}
       2 Annotations

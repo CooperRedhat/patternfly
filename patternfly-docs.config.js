@@ -8,7 +8,8 @@ module.exports = {
     { section: 'components' },
     { section: 'layouts' },
     { section: 'utilities' },
-    { section: 'demos' }
+    { section: 'demos' },
+    { section: 'extensions' }
   ],
   topNavItems: [
     {
@@ -22,10 +23,6 @@ module.exports = {
     {
       text: 'Guidelines',
       path: '/guidelines'
-    },
-    {
-      text: 'Modifiers',
-      path: '/modifiers'
     },
     {
       text: 'Upgrade guide',

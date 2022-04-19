@@ -18,7 +18,7 @@ cssPrefix: pf-c-description-list
 
 ### Default 2 col
 ```hbs
-{{> description-list__example description-list--title="Default 2 column DL" description-list--modifier="pf-m-2-col"}}
+{{> description-list__example description-list--title="Default 2 column DL" description-list--modifier="pf-m-2-col" description-list--IsLongDescription="true"}}
 ```
 
 ### Default 3 col on lg
@@ -39,6 +39,29 @@ cssPrefix: pf-c-description-list
 ### Horizontal 3 col on lg
 ```hbs
 {{> description-list__example description-list--title="Horizontal 3 column DL" description-list--modifier="pf-m-horizontal pf-m-3-col-on-lg"}}
+```
+
+### Compact
+```hbs
+{{> description-list__example description-list--title="Compact DL" description-list--modifier="pf-m-compact"}}
+```
+
+### Compact horizontal
+```hbs
+{{> description-list__example description-list--title="Compact DL" description-list--modifier="pf-m-compact pf-m-horizontal pf-m-2-col"}}
+```
+
+### Fluid horizontal
+```hbs
+{{> description-list__example description-list--title="Fluid DL" description-list--modifier="pf-m-horizontal pf-m-fluid pf-m-2-col"}}
+```
+
+### Column fill
+
+Column fill will modify the default placement of description list groups to fill from top to bottom using css column-count, instead of left to right. **Note:** using this modifier will change the layout so that horizontally adjacent groups are no longer aligned in the same row.
+
+```hbs
+{{> description-list__example description-list--title="Column fill" description-list--modifier="pf-m-fill-columns pf-m-2-col pf-m-3-col-on-lg" description-list--IsLongDescription="true"}}
 ```
 
 ## Auto fit
@@ -101,6 +124,13 @@ cssPrefix: pf-c-description-list
 {{> description-list__example description-list--title="Horizontal 2 column DL" description-list--modifier="pf-m-horizontal pf-m-auto-term-widths pf-m-2-col"}}
 ``` -->
 
+## With icons
+
+### Icons on terms
+```hbs
+{{> description-list__example-with-icons description-list--title="With icon"}}
+```
+
 ## Documentation
 
 ### Accessibility
@@ -119,14 +149,18 @@ cssPrefix: pf-c-description-list
 | `.pf-c-description-list__term` | `<dt>` | Initiates a description list component term. **Required** |
 | `.pf-c-description-list__description` | `<dd>` | Initiates a description list component description. **Required** |
 | `.pf-c-description-list__text` | `<span>`, `<div>` | Initiates a description list component text element. Use a `<span>` when a child of `.pf-c-description-list__term`. **Required** |
+| `.pf-c-description-list__term-icon` | `<span>` | Initiates a description list component term icon element. |
+| `.pf-m-compact` | `.pf-c-description-list` | Modifies the description list for compact horizontal and vertical spacing. |
+| `.pf-m-fluid` | `.pf-c-description-list.pf-m-horizontal` | Modifies the description list term width to be fluid. |
 | `.pf-m-help-text` | `.pf-c-description-list__text` | Indicates there is more information available for the description list component term text. |
 | `.pf-m-horizontal{-on-[sm, md, lg, xl, 2xl]}` | `.pf-c-description-list` | Modifies the description list component term and description pair to a horizontal layout. |
 | `.pf-m-vertical{-on-[sm, md, lg, xl, 2xl]}` | `.pf-c-description-list` | Modifies the description list component term and description pair to a vertical layout. |
+| `.pf-m-fill-columns` | `.pf-c-description-list` | Modifies the description list groups to fill columns from top to bottom, instead of rows from left to right. |
 | `.pf-m-auto-column-widths` | `.pf-c-description-list` | Modifies the description list to format automatically. |
 | `.pf-m-inline-grid` | `.pf-c-description-list` | Modifies the description list display to inline-grid. |
 | `.pf-m-{1,2,3}-col{-on-[sm, md, lg, xl, 2xl]}` | `.pf-c-description-list` | Modifies the description list number of columns. |
-| `--pf-c-description-list--GridTemplateColumns--min{-on-[breakpoint]}: {width}` | `.pf-c-description-list` | Modifies the min value of the `grid-template-columns` declaration. |
-| `--pf-c-description-list__term--m-horizontal--width{-on-[breakpoint]}: {width}` | `.pf-c-description-list.pf-m-horizontal` | Modifies the value for `--pf-c-description-list--m-horizontal__term--width` declaration. |
+| `--pf-c-description-list--GridTemplateColumns--min{-on-[breakpoint]}: {width}` | `.pf-c-description-list` | Modifies the min value of the `grid-template-columns` declaration at optional [breakpoint](/developer-resources/global-css-variables#breakpoint-variables-and-class-suffixes). |
+| `--pf-c-description-list--m-horizontal__term--width{-on-[breakpoint]}: {width}` | `.pf-c-description-list.pf-m-horizontal` | Modifies the description list term width at optional [breakpoint](/developer-resources/global-css-variables#breakpoint-variables-and-class-suffixes). |
 
 <!-- | `.pf-m-order[0-12]{-on-[breakpoint]}` | `.pf-c-description-list__group` | Modifies the order of the flex layout element. |
 | `.pf-m-order-first{-on-[breakpoint]}` | `.pf-c-description-list__group` | Modifies the order of the flex layout element to -1. |

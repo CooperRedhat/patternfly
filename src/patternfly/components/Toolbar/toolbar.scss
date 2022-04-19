@@ -12,13 +12,14 @@ $pf-c-toolbar--inset-map: build-spacer-map("none", "sm", "md", "lg", "xl", "2xl"
 
   // Item
   --pf-c-toolbar__item--Display: block;
+  --pf-c-toolbar__item--MinWidth--base: auto;
 
   // Group
   --pf-c-toolbar__group--Display: flex;
 
   // Sticky
-  --pf-c-toolbar--m-sticky-top--ZIndex: var(--pf-global--ZIndex--xs);
-  --pf-c-toolbar--m-sticky-top--BoxShadow: var(--pf-global--BoxShadow--sm-bottom);
+  --pf-c-toolbar--m-sticky--ZIndex: var(--pf-global--ZIndex--xs);
+  --pf-c-toolbar--m-sticky--BoxShadow: var(--pf-global--BoxShadow--sm-bottom);
 
   // Content
   --pf-c-toolbar__content--Display: flex;
@@ -99,12 +100,21 @@ $pf-c-toolbar--inset-map: build-spacer-map("none", "sm", "md", "lg", "xl", "2xl"
   --pf-c-toolbar__item--m-label--spacer: var(--pf-c-toolbar__item--spacer);
   --pf-c-toolbar__item--m-label--FontWeight: var(--pf-global--FontWeight--bold);
 
+  // Label in expanded content
+  --pf-c-toolbar__expandable-content__item--m-label--MarginBottom: calc(-1 * var(--pf-c-toolbar__expandable-content--m-expanded--GridRowGap) + var(--pf-global--spacer--sm));
+  --pf-c-toolbar__expandable-content__item--m-label--FontSize: var(--pf-global--FontSize--sm);
+
   // Toggle
   --pf-c-toolbar__toggle--m-expanded__c-button--m-plain--Color: var(--pf-global--Color--100);
 
   // Divider
   --pf-c-toolbar--c-divider--m-vertical--spacer: var(--pf-c-toolbar--spacer--base);
 
+  // Full Height
+  --pf-c-toolbar--m-full-height--PaddingTop: 0;
+  --pf-c-toolbar--m-full-height--PaddingBottom: 0;
+  --pf-c-toolbar--m-full-height__item--Display: flex;
+  --pf-c-toolbar--m-full-height__item--AlignItems: center;
 
   @media screen and (min-width: $pf-global--breakpoint--lg) {
     --pf-c-toolbar__expandable-content--PaddingRight: var(--pf-c-toolbar__expandable-content--lg--PaddingRight);
@@ -128,11 +138,50 @@ $pf-c-toolbar--inset-map: build-spacer-map("none", "sm", "md", "lg", "xl", "2xl"
     --pf-c-toolbar__content--PaddingLeft: var(--pf-c-toolbar--m-page-insets--inset);
   }
 
-  &.pf-m-sticky-top {
+  &.pf-m-sticky {
     position: sticky;
     top: 0;
-    z-index: var(--pf-c-toolbar--m-sticky-top--ZIndex);
-    box-shadow: var(--pf-c-toolbar--m-sticky-top--BoxShadow);
+    z-index: var(--pf-c-toolbar--m-sticky--ZIndex);
+    box-shadow: var(--pf-c-toolbar--m-sticky--BoxShadow);
+  }
+
+  &.pf-m-full-height {
+    --pf-c-toolbar--PaddingTop: var(--pf-c-toolbar--m-full-height--PaddingTop);
+    --pf-c-toolbar--PaddingBottom: var(--pf-c-toolbar--m-full-height--PaddingTop);
+    --pf-c-toolbar__item--Display: var(--pf-c-toolbar--m-full-height__item--Display);
+
+    height: 100%;
+
+    &,
+    .pf-c-toolbar__content,
+    .pf-c-toolbar__content-section,
+    .pf-c-toolbar__expandable-content,
+    .pf-c-toolbar__group {
+      min-width: 0;
+    }
+
+    &,
+    .pf-c-toolbar__content,
+    .pf-c-toolbar__content-section,
+    .pf-c-toolbar__group,
+    .pf-c-toolbar__item {
+      align-self: stretch;
+    }
+
+    .pf-c-toolbar__item {
+      align-items: var(--pf-c-toolbar--m-full-height__item--AlignItems);
+    }
+  }
+
+  &.pf-m-static {
+    &,
+    .pf-c-toolbar__content {
+      position: static;
+    }
+
+    .pf-c-toolbar__expandable-content {
+      position: absolute;
+    }
   }
 }
 
@@ -220,9 +269,11 @@ $pf-c-toolbar--inset-map: build-spacer-map("none", "sm", "md", "lg", "xl", "2xl"
   --pf-c-toolbar--spacer: var(--pf-c-toolbar__item--spacer);
 
   @include pf-build-css-variable-stack("--pf-c-toolbar__item--Width--base", "--pf-c-toolbar__item--Width", $pf-c-toolbar--breakpoint-map);
+  @include pf-build-css-variable-stack("--pf-c-toolbar__item--MinWidth--base", "--pf-c-toolbar__item--MinWidth", $pf-c-toolbar--breakpoint-map);
   @include pf-hidden-visible(var(--pf-c-toolbar__item--Display));
 
   width: var(--pf-c-toolbar__item--Width--base);
+  min-width: var(--pf-c-toolbar__item--MinWidth--base);
   margin-right: var(--pf-c-toolbar--spacer);
 
   // Overflow menu
@@ -271,6 +322,15 @@ $pf-c-toolbar--inset-map: build-spacer-map("none", "sm", "md", "lg", "xl", "2xl"
     --pf-c-toolbar--spacer: 0;
   }
 }
+
+.pf-c-toolbar__group,
+.pf-c-toolbar__item {
+  &.pf-m-overflow-container {
+    flex: 1;
+    overflow: hidden;
+  }
+}
+
 
 .pf-c-toolbar__expand-all-icon {
   display: inline-block;
@@ -336,8 +396,8 @@ $pf-c-toolbar--inset-map: build-spacer-map("none", "sm", "md", "lg", "xl", "2xl"
   }
 
   .pf-m-label {
-    display: none;
-    visibility: hidden;
+    margin-bottom: var(--pf-c-toolbar__expandable-content__item--m-label--MarginBottom);
+    font-size: var(--pf-c-toolbar__expandable-content__item--m-label--FontSize);
   }
 }
 

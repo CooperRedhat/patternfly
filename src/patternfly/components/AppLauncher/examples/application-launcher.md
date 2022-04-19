@@ -210,8 +210,7 @@ import './application-launcher.css'
 {{#> app-launcher app-launcher--id="app-launcher-favorites" app-launcher--IsExpanded="true" app-launcher--IsGrouped="true"}}
   {{#> app-launcher-menu}}
     {{#> app-launcher-menu-search}}
-      {{#> form-control controlType="input" input="true" form-control--attribute=(concat 'type="search" aria-label="Type to filter" placeholder="Filter by name..." id="' app-launcher--id '-text-input" name="textInput1"')}}
-        {{/form-control}}
+      {{> search-input}}
     {{/app-launcher-menu-search}}
     {{#> app-launcher-group}}
       {{#> app-launcher-group-title}}
@@ -226,7 +225,7 @@ import './application-launcher.css'
             Link 2
           {{> app-launcher-menu-item-external-icon}}
           {{/app-launcher-menu-item}}
-          {{#> app-launcher-menu-item app-launcher-menu-item--type="button" app-launcher-menu-item--modifier="pf-m-action"}}
+          {{#> app-launcher-menu-item app-launcher-menu-item--type="button" app-launcher-menu-item--modifier="pf-m-action" app-launcher-menu-item--IsFavorite="true"}}
             {{> app-launcher-favorite-icon}}
           {{/app-launcher-menu-item}}
         {{/app-launcher-menu-wrapper}}
@@ -238,7 +237,7 @@ import './application-launcher.css'
             Link 3
           {{> app-launcher-menu-item-external-icon}}
           {{/app-launcher-menu-item}}
-          {{#> app-launcher-menu-item app-launcher-menu-item--type="button" app-launcher-menu-item--modifier="pf-m-action"}}
+          {{#> app-launcher-menu-item app-launcher-menu-item--type="button" app-launcher-menu-item--modifier="pf-m-action" app-launcher-menu-item--IsFavorite="true"}}
             {{> app-launcher-favorite-icon}}
           {{/app-launcher-menu-item}}
         {{/app-launcher-menu-wrapper}}
@@ -258,7 +257,7 @@ import './application-launcher.css'
             Link 1
           {{> app-launcher-menu-item-external-icon}}
           {{/app-launcher-menu-item}}
-          {{#> app-launcher-menu-item app-launcher-menu-item--type="button" app-launcher-menu-item--modifier="pf-m-action"}}
+          {{#> app-launcher-menu-item app-launcher-menu-item--type="button" app-launcher-menu-item--modifier="pf-m-action" app-launcher-menu-item--IsFavorite="true"}}
             {{> app-launcher-favorite-icon}}
           {{/app-launcher-menu-item}}
         {{/app-launcher-menu-wrapper}}
@@ -270,7 +269,7 @@ import './application-launcher.css'
             Link 2
           {{> app-launcher-menu-item-external-icon}}
           {{/app-launcher-menu-item}}
-          {{#> app-launcher-menu-item app-launcher-menu-item--type="button" app-launcher-menu-item--modifier="pf-m-action"}}
+          {{#> app-launcher-menu-item app-launcher-menu-item--type="button" app-launcher-menu-item--modifier="pf-m-action" app-launcher-menu-item--IsFavorite="true"}}
             {{> app-launcher-favorite-icon}}
           {{/app-launcher-menu-item}}
         {{/app-launcher-menu-wrapper}}
@@ -290,7 +289,7 @@ import './application-launcher.css'
             Link 3
             {{> app-launcher-menu-item-external-icon}}
           {{/app-launcher-menu-item}}
-          {{#> app-launcher-menu-item app-launcher-menu-item--type="button" app-launcher-menu-item--modifier="pf-m-action"}}
+          {{#> app-launcher-menu-item app-launcher-menu-item--type="button" app-launcher-menu-item--modifier="pf-m-action" app-launcher-menu-item--IsFavorite="true"}}
             {{> app-launcher-favorite-icon}}
           {{/app-launcher-menu-item}}
         {{/app-launcher-menu-wrapper}}
@@ -302,7 +301,7 @@ import './application-launcher.css'
             Link 4
             {{> app-launcher-menu-item-external-icon}}
           {{/app-launcher-menu-item}}
-          {{#> app-launcher-menu-item app-launcher-menu-item--type="button" app-launcher-menu-item--modifier="pf-m-action"}}
+          {{#> app-launcher-menu-item app-launcher-menu-item--type="button" app-launcher-menu-item--modifier="pf-m-action" app-launcher-menu-item--IsFavorite="true"}}
             {{> app-launcher-favorite-icon}}
           {{/app-launcher-menu-item}}
         {{/app-launcher-menu-wrapper}}

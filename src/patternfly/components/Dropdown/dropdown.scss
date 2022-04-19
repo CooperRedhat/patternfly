@@ -18,26 +18,46 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
   --pf-c-dropdown__toggle--before--BorderBottomColor: var(--pf-global--BorderColor--200);
   --pf-c-dropdown__toggle--before--BorderLeftColor: var(--pf-global--BorderColor--300);
   --pf-c-dropdown__toggle--hover--before--BorderBottomColor: var(--pf-global--active-color--100);
-  --pf-c-dropdown__toggle--active--before--BorderBottomWidth: var(--pf-global--BorderWidth--md);
-  --pf-c-dropdown__toggle--active--before--BorderBottomColor: var(--pf-global--active-color--100);
   --pf-c-dropdown__toggle--focus--before--BorderBottomWidth: var(--pf-global--BorderWidth--md);
   --pf-c-dropdown__toggle--focus--before--BorderBottomColor: var(--pf-global--active-color--100);
+  --pf-c-dropdown__toggle--active--before--BorderBottomWidth: var(--pf-global--BorderWidth--md);
+  --pf-c-dropdown__toggle--active--before--BorderBottomColor: var(--pf-global--active-color--100);
   --pf-c-dropdown--m-expanded__toggle--before--BorderBottomWidth: var(--pf-global--BorderWidth--md);
   --pf-c-dropdown--m-expanded__toggle--before--BorderBottomColor: var(--pf-global--active-color--100);
   --pf-c-dropdown__toggle--disabled--BackgroundColor: var(--pf-global--disabled-color--300);
+
+  // Plain
   --pf-c-dropdown__toggle--m-plain--Color: var(--pf-global--Color--200);
   --pf-c-dropdown__toggle--m-plain--hover--Color: var(--pf-global--Color--100);
   --pf-c-dropdown__toggle--m-plain--disabled--Color: var(--pf-global--disabled-color--200);
   --pf-c-dropdown__toggle--m-plain--PaddingRight: var(--pf-global--spacer--md);
   --pf-c-dropdown__toggle--m-plain--PaddingLeft: var(--pf-global--spacer--md);
   --pf-c-dropdown__toggle--m-plain--child--LineHeight: normal; // remove at breaking change
+
+  // Primary
   --pf-c-dropdown__toggle--m-primary--Color: var(--pf-global--Color--light-100);
   --pf-c-dropdown__toggle--m-primary--BorderRadius: var(--pf-global--BorderRadius--sm);
   --pf-c-dropdown__toggle--m-primary--BackgroundColor: var(--pf-global--primary-color--100);
   --pf-c-dropdown__toggle--m-primary--hover--BackgroundColor: var(--pf-global--primary-color--200);
-  --pf-c-dropdown__toggle--m-primary--active--BackgroundColor: var(--pf-global--primary-color--200);
   --pf-c-dropdown__toggle--m-primary--focus--BackgroundColor: var(--pf-global--primary-color--200);
+  --pf-c-dropdown__toggle--m-primary--active--BackgroundColor: var(--pf-global--primary-color--200);
   --pf-c-dropdown--m-expanded__toggle--m-primary--BackgroundColor: var(--pf-global--primary-color--200);
+  --pf-c-dropdown__toggle--m-primary--disabled--Color: var(--pf-global--Color--100);
+
+  // Secondary
+  --pf-c-dropdown__toggle--m-secondary--Color: var(--pf-global--primary-color--100);
+  --pf-c-dropdown__toggle--m-secondary--BorderRadius: var(--pf-global--BorderRadius--sm);
+  --pf-c-dropdown__toggle--m-secondary--BackgroundColor: transparent;
+  --pf-c-dropdown__toggle--m-secondary--before--BorderWidth: var(--pf-global--BorderWidth--sm);
+  --pf-c-dropdown__toggle--m-secondary--hover--before--BorderWidth: var(--pf-global--BorderWidth--md);
+  --pf-c-dropdown__toggle--m-secondary--focus--before--BorderWidth: var(--pf-global--BorderWidth--md);
+  --pf-c-dropdown__toggle--m-secondary--active--before--BorderWidth: var(--pf-global--BorderWidth--md);
+  --pf-c-dropdown__toggle--m-secondary--before--BorderColor: var(--pf-global--primary-color--100);
+  --pf-c-dropdown__toggle--m-secondary--hover--before--BorderColor: var(--pf-global--primary-color--100);
+  --pf-c-dropdown__toggle--m-secondary--focus--before--BorderColor: var(--pf-global--primary-color--100);
+  --pf-c-dropdown__toggle--m-secondary--active--before--BorderColor: var(--pf-global--primary-color--100);
+  --pf-c-dropdown--m-expanded__toggle--m-secondary--before--BorderWidth: var(--pf-global--BorderWidth--md);
+  --pf-c-dropdown--m-expanded__toggle--m-secondary--before--BorderColor: var(--pf-global--primary-color--100);
 
   // toggle button
   --pf-c-dropdown__toggle-button--Color: var(--pf-global--Color--100);
@@ -56,11 +76,25 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
   --pf-c-dropdown__toggle--m-split-button__toggle-check__input--TranslateY: #{pf-size-prem(-1px)};
   --pf-c-dropdown__toggle--m-split-button__toggle-text--MarginLeft: var(--pf-global--spacer--sm);
 
+  // Split button
+  --pf-c-dropdown__toggle--m-split-button--m-primary--child--BorderRadius: var(--pf-global--BorderRadius--sm);
+  --pf-c-dropdown__toggle--m-split-button--m-primary--child--BackgroundColor: var(--pf-global--primary-color--100);
+  --pf-c-dropdown__toggle--m-split-button--m-primary--child--hover--BackgroundColor: var(--pf-global--primary-color--200);
+  --pf-c-dropdown__toggle--m-split-button--m-primary--child--focus--BackgroundColor: var(--pf-global--primary-color--200);
+  --pf-c-dropdown__toggle--m-split-button--m-primary--child--active--BackgroundColor: var(--pf-global--primary-color--200);
+  --pf-c-dropdown__toggle--m-split-button--m-primary--child--m-expanded--BackgroundColor: var(--pf-global--primary-color--200);
+
+  // Split button, action, primary
+  --pf-c-dropdown__toggle--m-split-button--m-primary--m-action--child--BorderLeftColor: var(--pf-global--primary-color--200);
+  --pf-c-dropdown__toggle--m-split-button--m-primary--m-action--child--BorderLeftWidth: var(--pf-global--BorderWidth--sm);
+
   // Toggle Arrow
   --pf-c-dropdown__toggle-icon--LineHeight: var(--pf-global--LineHeight--md);
   --pf-c-dropdown__toggle-icon--MarginRight: var(--pf-global--spacer--sm);
   --pf-c-dropdown__toggle-icon--MarginLeft: var(--pf-global--spacer--md);
   --pf-c-dropdown--m-top--m-expanded__toggle-icon--Rotate: 180deg;
+  --pf-c-dropdown--m-plain__toggle-icon--Color: var(--pf-global--Color--200);
+  --pf-c-dropdown--m-plain--hover__toggle-icon--Color: var(--pf-global--Color--100);
 
   // Menu
   --pf-c-dropdown__menu--BackgroundColor: var(--pf-global--BackgroundColor--light-100);
@@ -108,8 +142,8 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
   --pf-c-dropdown__group-title--Color: var(--pf-global--Color--dark-200);
 
   // Image
-  --pf-c-dropdown__toggle-image--MarginTop: var(--pf-global--spacer--xs);
-  --pf-c-dropdown__toggle-image--MarginBottom: var(--pf-global--spacer--xs);
+  --pf-c-dropdown__toggle-image--MarginTop: 0; // remove at breaking change
+  --pf-c-dropdown__toggle-image--MarginBottom: 0; // remove at breaking change
   --pf-c-dropdown__toggle-image--MarginRight: var(--pf-global--spacer--sm);
 
   // Divider
@@ -129,8 +163,12 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
   // Dropdown
   --pf-c-dropdown--m-full-height__toggle--before--BorderTopWidth: 0;
   --pf-c-dropdown--m-full-height__toggle--expanded--before--BorderBottomWidth: var(--pf-global--BorderWidth--xl);
+  --pf-c-dropdown--m-full-height__toggle--hover--before--BorderBottomWidth: var(--pf-global--BorderWidth--xl);
   --pf-c-dropdown--m-full-height__toggle--active--before--BorderBottomWidth: var(--pf-global--BorderWidth--xl);
   --pf-c-dropdown--m-full-height__toggle--focus--before--BorderBottomWidth: var(--pf-global--BorderWidth--xl);
+  --pf-c-dropdown--m-full-height__toggle--PaddingRight: var(--pf-global--spacer--lg);
+  --pf-c-dropdown--m-full-height__toggle--PaddingLeft: var(--pf-global--spacer--lg);
+
 
   position: relative;
   display: inline-block;
@@ -153,6 +191,8 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
   }
 
   &.pf-m-full-height {
+    --pf-c-dropdown__toggle--PaddingRight: var(--pf-c-dropdown--m-full-height__toggle--PaddingRight);
+    --pf-c-dropdown__toggle--PaddingLeft: var(--pf-c-dropdown--m-full-height__toggle--PaddingLeft);
     --pf-c-dropdown__toggle--active--before--BorderBottomWidth: var(--pf-c-dropdown--m-full-height__toggle--active--before--BorderBottomWidth);
     --pf-c-dropdown__toggle--focus--before--BorderBottomWidth: var(--pf-c-dropdown--m-full-height__toggle--focus--before--BorderBottomWidth);
     --pf-c-dropdown--m-expanded__toggle--before--BorderBottomWidth: var(--pf-c-dropdown--m-full-height__toggle--expanded--before--BorderBottomWidth);
@@ -168,6 +208,16 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
         border-top-width: var(--pf-c-dropdown--m-full-height__toggle--before--BorderTopWidth);
       }
     }
+
+    &:hover {
+      .pf-c-dropdown__toggle::before {
+        border-bottom-width: var(--pf-c-dropdown--m-full-height__toggle--hover--before--BorderBottomWidth);
+      }
+    }
+  }
+
+  &.pf-m-expanded {
+    --pf-c-dropdown__toggle--m-split-button--m-primary--child--BackgroundColor: var(--pf-c-dropdown__toggle--m-split-button--m-primary--child--m-expanded--BackgroundColor);
   }
 }
 
@@ -200,9 +250,13 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
 
   &.pf-m-disabled,
   &:disabled {
+    --pf-c-dropdown__toggle--m-primary--Color: var(--pf-c-dropdown__toggle--m-primary--disabled--Color);
+    --pf-c-dropdown__toggle--before--BorderBottomColor: transparent;
+
     pointer-events: none;
 
-    &:not(.pf-m-plain) {
+    &:not(.pf-m-plain),
+    &.pf-m-plain.pf-m-text {
       --pf-c-dropdown__toggle--BackgroundColor: var(--pf-c-dropdown__toggle--disabled--BackgroundColor);
 
       &::before {
@@ -214,13 +268,16 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
   &.pf-m-split-button {
     padding: 0;
 
+    &:not(.pf-m-disabled) {
+      background-color: var(--pf-c-dropdown__toggle--m-split-button--child--BackgroundColor);
+    }
+
     > * {
       position: relative;
       padding-top: var(--pf-c-dropdown__toggle--m-split-button--child--PaddingTop);
       padding-right: var(--pf-c-dropdown__toggle--m-split-button--child--PaddingRight);
       padding-bottom: var(--pf-c-dropdown__toggle--m-split-button--child--PaddingBottom);
       padding-left: var(--pf-c-dropdown__toggle--m-split-button--child--PaddingLeft);
-      background-color: var(--pf-c-dropdown__toggle--m-split-button--child--BackgroundColor);
 
       &:first-child {
         --pf-c-dropdown__toggle--m-split-button--child--PaddingLeft: var(--pf-c-dropdown__toggle--m-split-button--first-child--PaddingLeft);
@@ -248,6 +305,19 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
         }
         // stylelint-enable
       }
+
+      &.pf-m-primary {
+        // stylelint-disable max-nesting-depth, selector-max-class
+        > :not(:first-child) {
+          border-left: var(--pf-c-dropdown__toggle--m-split-button--m-primary--m-action--child--BorderLeftWidth) solid var(--pf-c-dropdown__toggle--m-split-button--m-primary--m-action--child--BorderLeftColor);
+        }
+
+        &.pf-m-disabled,
+        &[disabled] {
+          --pf-c-dropdown__toggle--m-split-button--m-primary--m-action--child--BorderLeftWidth: 0;
+        }
+        // stylelint-enable
+      }
     }
 
     .pf-c-dropdown__toggle-check {
@@ -272,24 +342,47 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
     }
   }
 
-  &:not(.pf-m-action):hover,
+  &.pf-m-primary.pf-m-split-button:not(.pf-m-disabled) {
+    --pf-c-dropdown__toggle--before--BorderWidth: 0;
+    --pf-c-dropdown--m-expanded__toggle--before--BorderBottomWidth: 0;
+
+    > * {
+      background-color: var(--pf-c-dropdown__toggle--m-split-button--m-primary--child--BackgroundColor);
+      border: 0;
+
+      &:hover {
+        --pf-c-dropdown__toggle--m-split-button--m-primary--child--BackgroundColor: var(--pf-c-dropdown__toggle--m-split-button--m-primary--child--hover--BackgroundColor);
+      }
+
+      &:focus {
+        --pf-c-dropdown__toggle--m-split-button--m-primary--child--BackgroundColor: var(--pf-c-dropdown__toggle--m-split-button--m-primary--child--focus--BackgroundColor);
+      }
+
+      &:active,
+      &.pf-m-active {
+        --pf-c-dropdown__toggle--m-split-button--m-primary--child--BackgroundColor: var(--pf-c-dropdown__toggle--m-split-button--m-primary--child--focus--BackgroundColor);
+      }
+    }
+
+    > :first-child {
+      border-top-left-radius: var(--pf-c-dropdown__toggle--m-split-button--m-primary--child--BorderRadius);
+      border-bottom-left-radius: var(--pf-c-dropdown__toggle--m-split-button--m-primary--child--BorderRadius);
+    }
+
+    > :last-child {
+      border-top-right-radius: var(--pf-c-dropdown__toggle--m-split-button--m-primary--child--BorderRadius);
+      border-bottom-right-radius: var(--pf-c-dropdown__toggle--m-split-button--m-primary--child--BorderRadius);
+    }
+  }
+
+  &:not(.pf-m-action):not(.pf-m-secondary):hover,
   &.pf-m-action .pf-c-dropdown__toggle-button:hover {
     &::before {
       --pf-c-dropdown__toggle--before--BorderBottomColor: var(--pf-c-dropdown__toggle--hover--before--BorderBottomColor);
     }
   }
 
-  &:not(.pf-m-action):active,
-  &:not(.pf-m-action).pf-m-active,
-  &.pf-m-action .pf-c-dropdown__toggle-button:active {
-    &::before {
-      --pf-c-dropdown__toggle--before--BorderBottomColor: var(--pf-c-dropdown__toggle--active--before--BorderBottomColor);
-
-      border-bottom-width: var(--pf-c-dropdown__toggle--active--before--BorderBottomWidth);
-    }
-  }
-
-  &:not(.pf-m-action):focus,
+  &:not(.pf-m-action):not(.pf-m-secondary):focus,
   &.pf-m-action .pf-c-dropdown__toggle-button:focus {
     &::before {
       --pf-c-dropdown__toggle--before--BorderBottomColor: var(--pf-c-dropdown__toggle--focus--before--BorderBottomColor);
@@ -298,7 +391,17 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
     }
   }
 
-  .pf-m-expanded > &:not(.pf-m-action),
+  &:not(.pf-m-action):not(.pf-m-secondary):active,
+  &:not(.pf-m-action):not(.pf-m-secondary).pf-m-active,
+  &.pf-m-action .pf-c-dropdown__toggle-button:active {
+    &::before {
+      --pf-c-dropdown__toggle--before--BorderBottomColor: var(--pf-c-dropdown__toggle--active--before--BorderBottomColor);
+
+      border-bottom-width: var(--pf-c-dropdown__toggle--active--before--BorderBottomWidth);
+    }
+  }
+
+  .pf-m-expanded > &:not(.pf-m-action):not(.pf-m-secondary),
   .pf-m-expanded > &.pf-m-action .pf-c-dropdown__toggle-button {
     &::before {
       --pf-c-dropdown__toggle--before--BorderBottomColor: var(--pf-c-dropdown--m-expanded__toggle--before--BorderBottomColor);
@@ -308,15 +411,19 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
   }
 
   &.pf-m-plain {
-    --pf-c-dropdown__toggle--PaddingRight: var(--pf-c-dropdown__toggle--m-plain--PaddingRight);
-    --pf-c-dropdown__toggle--PaddingLeft: var(--pf-c-dropdown__toggle--m-plain--PaddingLeft);
+    --pf-c-dropdown__toggle-icon--Color: var(--pf-c-dropdown--m-plain__toggle-icon--Color);
 
-    display: inline-block;
-    color: var(--pf-c-dropdown__toggle--m-plain--Color);
+    &:not(.pf-m-text) {
+      --pf-c-dropdown__toggle--PaddingRight: var(--pf-c-dropdown__toggle--m-plain--PaddingRight);
+      --pf-c-dropdown__toggle--PaddingLeft: var(--pf-c-dropdown__toggle--m-plain--PaddingLeft);
 
-    // remove at breaking change
-    > * {
-      line-height: var(--pf-c-dropdown__toggle--m-plain--child--LineHeight);
+      display: inline-block;
+      color: var(--pf-c-dropdown__toggle--m-plain--Color);
+
+      // remove at breaking change
+      > * {
+        line-height: var(--pf-c-dropdown__toggle--m-plain--child--LineHeight);
+      }
     }
 
     &::before {
@@ -324,11 +431,12 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
     }
 
     &:hover,
+    &:focus,
     &:active,
     &.pf-m-active,
-    &:focus,
     .pf-m-expanded > & {
       --pf-c-dropdown__toggle--m-plain--Color: var(--pf-c-dropdown__toggle--m-plain--hover--Color);
+      --pf-c-dropdown--m-plain__toggle-icon--Color: var(--pf-c-dropdown--m-plain--hover__toggle-icon--Color);
     }
 
     &.pf-m-disabled,
@@ -340,10 +448,12 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
   &.pf-m-primary {
     --pf-c-dropdown__toggle--Color: var(--pf-c-dropdown__toggle--m-primary--Color);
     --pf-c-dropdown__toggle--BackgroundColor: var(--pf-c-dropdown__toggle--m-primary--BackgroundColor);
+    --pf-c-dropdown__toggle-button--Color: var(--pf-c-dropdown__toggle--m-primary--Color);
 
     border-radius: var(--pf-c-dropdown__toggle--m-primary--BorderRadius);
 
-    &::before {
+    &::before,
+    .pf-c-dropdown__toggle-button::before {
       border: 0;
     }
 
@@ -351,17 +461,49 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
       --pf-c-dropdown__toggle--BackgroundColor: var(--pf-c-dropdown__toggle--m-primary--hover--BackgroundColor);
     }
 
+    &:focus {
+      --pf-c-dropdown__toggle--BackgroundColor: var(--pf-c-dropdown__toggle--m-primary--focus--BackgroundColor);
+    }
+
     &:active,
     &.pf-m-active {
       --pf-c-dropdown__toggle--BackgroundColor: var(--pf-c-dropdown__toggle--m-primary--active--BackgroundColor);
     }
 
+    .pf-m-expanded > & {
+      --pf-c-dropdown__toggle--BackgroundColor: var(--pf-c-dropdown--m-expanded__toggle--m-primary--BackgroundColor);
+    }
+  }
+
+  &.pf-m-secondary {
+    border-radius: var(--pf-c-dropdown__toggle--m-secondary--BorderRadius);
+
+    &:not(.pf-m-disabled):not([disabled]) {
+      --pf-c-dropdown__toggle--Color: var(--pf-c-dropdown__toggle--m-secondary--Color);
+      --pf-c-dropdown__toggle--BackgroundColor: var(--pf-c-dropdown__toggle--m-secondary--BackgroundColor);
+
+      &::before {
+        border: var(--pf-c-dropdown__toggle--m-secondary--before--BorderWidth) solid var(--pf-c-dropdown__toggle--m-secondary--before--BorderColor);
+        border-radius: var(--pf-c-dropdown__toggle--m-secondary--BorderRadius);
+      }
+    }
+
+    &:hover {
+      --pf-c-dropdown__toggle--m-secondary--before--BorderWidth: var(--pf-c-dropdown__toggle--m-secondary--hover--before--BorderWidth);
+    }
+
     &:focus {
-      --pf-c-dropdown__toggle--BackgroundColor: var(--pf-c-dropdown__toggle--m-primary--focus--BackgroundColor);
+      --pf-c-dropdown__toggle--m-secondary--before--BorderWidth: var(--pf-c-dropdown__toggle--m-secondary--focus--before--BorderWidth);
+    }
+
+    &:active,
+    &.pf-m-active {
+      --pf-c-dropdown__toggle--m-secondary--before--BorderWidth: var(--pf-c-dropdown__toggle--m-secondary--active--before--BorderWidth);
     }
 
     .pf-m-expanded > & {
-      --pf-c-dropdown__toggle--BackgroundColor: var(--pf-c-dropdown--m-expanded__toggle--m-primary--BackgroundColor);
+      --pf-c-dropdown__toggle--m-secondary--before--BorderWidth: var(--pf-c-dropdown--m-expanded__toggle--m-secondary--before--BorderWidth);
+      --pf-c-dropdown__toggle--m-secondary--before--BorderColor: var(--pf-c-dropdown--m-expanded__toggle--m-secondary--before--BorderColor);
     }
   }
 
@@ -375,10 +517,15 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
   }
 }
 
+.pf-c-dropdown__toggle-text {
+  flex: 0 1 auto;
+}
+
 .pf-c-dropdown__toggle-icon {
   margin-right: var(--pf-c-dropdown__toggle-icon--MarginRight);
   margin-left: var(--pf-c-dropdown__toggle-icon--MarginLeft);
   line-height: var(--pf-c-dropdown__toggle-icon--LineHeight);
+  color: var(--pf-c-dropdown__toggle-icon--Color, inherit);
 
   // stylelint-disable-next-line
   .pf-c-dropdown.pf-m-top.pf-m-expanded & {
@@ -389,9 +536,12 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
 // Toggle image
 .pf-c-dropdown__toggle-image {
   display: inline-flex;
+  flex-shrink: 0;
+  align-self: center;
   margin-top: var(--pf-c-dropdown__toggle-image--MarginTop);
   margin-right: var(--pf-c-dropdown__toggle-image--MarginRight);
   margin-bottom: var(--pf-c-dropdown__toggle-image--MarginBottom);
+  line-height: 1;
 
   &:last-child {
     --pf-c-dropdown__toggle-image--MarginRight: 0;
@@ -402,7 +552,6 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
   position: absolute;
   top: var(--pf-c-dropdown__menu--Top);
   z-index: var(--pf-c-dropdown__menu--ZIndex);
-  min-width: 100%;
   padding-top: var(--pf-c-dropdown__menu--PaddingTop);
   padding-bottom: var(--pf-c-dropdown__menu--PaddingBottom);
   background: var(--pf-c-dropdown__menu--BackgroundColor);
@@ -410,8 +559,10 @@ $pf-c-dropdown--breakpoint-map: build-breakpoint-map("base", "sm", "md", "lg", "
   box-shadow: var(--pf-c-dropdown__menu--BoxShadow);
 }
 
-.pf-c-menu,
+.pf-c-dropdown .pf-c-menu,
 .pf-c-dropdown__menu {
+  min-width: 100%;
+
   @each $breakpoint, $breakpoint-value in $pf-c-dropdown--breakpoint-map {
     $breakpoint-name: if($breakpoint != "base", -on-#{$breakpoint}, "");
 
