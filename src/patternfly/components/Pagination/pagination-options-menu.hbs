@@ -1,7 +1,8 @@
-{{#> options-menu options-menu--modifier=pagination-options-menu--modifier}}
-  {{#> options-menu-toggle options-menu-toggle--type="div" options-menu-toggle--modifier="pf-m-plain"}}
-    <span class="pf-c-options-menu__toggle-text"><b>1 - 10</b>&nbsp;of&nbsp;<b>37</b></span>
-    {{> options-menu-toggle-button aria-label="Items per page"}}
+{{#> options-menu options-menu--IsPlainWithText="true" options-menu--HasToggleIcon="true" options-menu-toggle-button--aria-label="Items per page" options-menu--modifier=pagination-options-menu--modifier}}
+  {{#> options-menu-toggle}}
+    {{#> options-menu-toggle-text}}
+      <b>1 - 10</b>&nbsp;of&nbsp;<b>{{#if pagination--IsIndeterminate}}many{{else}}36{{/if}}</b>
+    {{/options-menu-toggle-text}}
   {{/options-menu-toggle}}
   {{#> options-menu-menu}}
     {{#> options-menu-menu-item}}

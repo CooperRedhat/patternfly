@@ -31,6 +31,8 @@
   --pf-c-options-menu__toggle-icon--MarginRight: var(--pf-global--spacer--sm);
   --pf-c-options-menu__toggle-icon--MarginLeft: var(--pf-global--spacer--md);
   --pf-c-options-menu--m-top--m-expanded__toggle-icon--Rotate: 180deg;
+  --pf-c-options-menu--m-plain__toggle-icon--Color: var(--pf-global--Color--200);
+  --pf-c-options-menu--m-plain--hover__toggle-icon--Color: var(--pf-global--Color--100);
 
   // Text toggle button
   --pf-c-options-menu__toggle-button--BackgroundColor: transparent;
@@ -139,17 +141,11 @@
   justify-content: space-between;
   min-width: var(--pf-c-options-menu__toggle--MinWidth);
   max-width: 100%;
-  padding-left: var(--pf-c-options-menu__toggle--PaddingLeft);
+  padding: var(--pf-c-options-menu__toggle--PaddingTop) var(--pf-c-options-menu__toggle--PaddingRight) var(--pf-c-options-menu__toggle--PaddingBottom) var(--pf-c-options-menu__toggle--PaddingLeft);
   line-height: var(--pf-c-options-menu__toggle--LineHeight);
   color: var(--pf-c-options-menu__toggle--Color);
   background-color: var(--pf-c-options-menu__toggle--BackgroundColor);
   border: none;
-
-  &:not(.pf-m-text) {
-    padding-top: var(--pf-c-options-menu__toggle--PaddingTop);
-    padding-right: var(--pf-c-options-menu__toggle--PaddingRight);
-    padding-bottom: var(--pf-c-options-menu__toggle--PaddingBottom);
-  }
 
   .pf-c-options-menu.pf-m-expanded > & {
     &::before {
@@ -160,18 +156,18 @@
   }
 
   &.pf-m-plain {
-    --pf-c-options-menu__toggle--PaddingRight: var(--pf-c-options-menu__toggle--m-plain--PaddingRight);
-    --pf-c-options-menu__toggle--PaddingLeft: var(--pf-c-options-menu__toggle--m-plain--PaddingLeft);
-
-    display: inline-block;
+    --pf-c-options-menu__toggle-icon--Color: var(--pf-c-options-menu--m-plain__toggle-icon--Color);
 
     &:not(.pf-m-text) {
-      justify-content: center;
-      color: var(--pf-c-options-menu__toggle--m-plain--Color);
-    }
+      --pf-c-options-menu__toggle--PaddingRight: var(--pf-c-options-menu__toggle--m-plain--PaddingRight);
+      --pf-c-options-menu__toggle--PaddingLeft: var(--pf-c-options-menu__toggle--m-plain--PaddingLeft);
 
-    .pf-c-options-menu__toggle-button-icon {
-      line-height: var(--pf-c-options-menu__toggle--LineHeight);
+      display: inline-block;
+      color: var(--pf-c-options-menu__toggle--m-plain--Color);
+
+      .pf-c-options-menu__toggle-button-icon {
+        line-height: var(--pf-c-options-menu__toggle--LineHeight);
+      }
     }
 
     &:hover,
@@ -180,6 +176,7 @@
     &:focus,
     .pf-c-options-menu.pf-m-expanded > & {
       --pf-c-options-menu__toggle--m-plain--Color: var(--pf-c-options-menu__toggle--m-plain--hover--Color);
+      --pf-c-options-menu--m-plain__toggle-icon--Color: var(--pf-c-options-menu--m-plain--hover__toggle-icon--Color);
     }
 
     &.pf-m-disabled,
@@ -215,6 +212,11 @@
 
 .pf-c-options-menu__toggle-text {
   @include pf-text-overflow;
+}
+
+.pf-c-options-menu__toggle-icon,
+.pf-c-options-menu__toggle-button-icon {
+  color: var(--pf-c-options-menu__toggle-icon--Color, inherit);
 }
 
 .pf-c-options-menu__toggle-icon {

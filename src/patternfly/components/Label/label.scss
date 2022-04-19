@@ -118,10 +118,13 @@
   --pf-c-label--m-compact--PaddingBottom: 0;
   --pf-c-label--m-compact--PaddingLeft: var(--pf-global--spacer--sm);
   --pf-c-label--m-compact--FontSize: var(--pf-global--FontSize--xs);
+  --pf-c-label--m-compact--m-editable--TextDecorationOffset: #{pf-size-prem(1px)};
 
   // Content
   --pf-c-label__content--Color: var(--pf-global--Color--100);
+  --pf-c-label__content--MaxWidth: 100%;
   --pf-c-label--m-outline__content--Color: var(--pf-global--Color--100);
+  --pf-c-label--m-editable__content--MaxWidth: 16ch;
 
   // text
   --pf-c-label__text--MaxWidth: 16ch;
@@ -142,6 +145,24 @@
   --pf-c-label__c-button--PaddingLeft: var(--pf-global--spacer--sm);
 
   // Editable
+  --pf-c-label--m-editable--Cursor: pointer;
+  --pf-c-label--m-editable--TextDecoration: underline;
+  --pf-c-label--m-editable--TextDecorationStyle: dashed;
+  --pf-c-label--m-editable--TextDecorationThickness: var(--pf-global--BorderWidth--sm);
+  --pf-c-label--m-editable--TextDecorationOffset: #{pf-size-prem(4px)};
+  --pf-c-label--m-editable--TextDecorationColor: var(--pf-global--BorderColor--200);
+  --pf-c-label--m-editable--hover--TextDecorationColor: var(--pf-global--Color--100);
+  --pf-c-label--m-editable--focus--TextDecorationColor: var(--pf-global--Color--100);
+  --pf-c-label--m-editable__content--before--BorderWidth: var(--pf-global--BorderWidth--sm);
+  --pf-c-label--m-editable__content--before--BorderColor: var(--pf-global--BorderColor--100);
+  --pf-c-label--m-editable__content--hover--before--BorderWidth: var(--pf-global--BorderWidth--sm);
+  --pf-c-label--m-editable__content--hover--before--BorderColor: var(--pf-global--BorderColor--100);
+  --pf-c-label--m-editable__content--focus--before--BorderWidth: var(--pf-global--BorderWidth--sm);
+  --pf-c-label--m-editable__content--focus--before--BorderColor: var(--pf-global--BorderColor--100);
+
+  // Editable active
+  --pf-c-label--m-editable--m-editable-active--Cursor: auto;
+  --pf-c-label--m-editable--m-editable-active--TextDecoration: none;
   --pf-c-label--m-editable--m-editable-active--BackgroundColor: transparent;
   --pf-c-label--m-editable--m-editable-active__content--before--BorderWidth: 0;
   --pf-c-label--m-editable--m-editable-active__content--before--BorderColor: transparent;
@@ -161,6 +182,7 @@
     --pf-c-label--PaddingBottom: var(--pf-c-label--m-compact--PaddingBottom);
     --pf-c-label--PaddingLeft: var(--pf-c-label--m-compact--PaddingLeft);
     --pf-c-label--FontSize: var(--pf-c-label--m-compact--FontSize);
+    --pf-c-label--m-editable--TextDecorationOffset: var(--pf-c-label--m-compact--m-editable--TextDecorationOffset);
   }
 
   &.pf-m-blue {
@@ -174,6 +196,9 @@
     --pf-c-label--m-outline__content--before--BorderColor: var(--pf-c-label--m-outline--m-blue__content--before--BorderColor);
     --pf-c-label--m-outline__content--link--hover--before--BorderColor: var(--pf-c-label--m-outline--m-blue__content--link--hover--before--BorderColor);
     --pf-c-label--m-outline__content--link--focus--before--BorderColor: var(--pf-c-label--m-outline--m-blue__content--link--focus--before--BorderColor);
+    --pf-c-label--m-editable__content--before--BorderColor: var(--pf-c-label--m-blue__content--before--BorderColor);
+    --pf-c-label--m-editable__content--hover--before--BorderColor: var(--pf-c-label--m-blue__content--before--BorderColor);
+    --pf-c-label--m-editable__content--focus--before--BorderColor: var(--pf-c-label--m-blue__content--before--BorderColor);
   }
 
   &.pf-m-green {
@@ -187,6 +212,9 @@
     --pf-c-label--m-outline__content--before--BorderColor: var(--pf-c-label--m-outline--m-green__content--before--BorderColor);
     --pf-c-label--m-outline__content--link--hover--before--BorderColor: var(--pf-c-label--m-outline--m-green__content--link--hover--before--BorderColor);
     --pf-c-label--m-outline__content--link--focus--before--BorderColor: var(--pf-c-label--m-outline--m-green__content--link--focus--before--BorderColor);
+    --pf-c-label--m-editable__content--before--BorderColor: var(--pf-c-label--m-green__content--before--BorderColor);
+    --pf-c-label--m-editable__content--hover--before--BorderColor: var(--pf-c-label--m-green__content--before--BorderColor);
+    --pf-c-label--m-editable__content--focus--before--BorderColor: var(--pf-c-label--m-green__content--before--BorderColor);
   }
 
   &.pf-m-orange {
@@ -200,6 +228,9 @@
     --pf-c-label--m-outline__content--before--BorderColor: var(--pf-c-label--m-outline--m-orange__content--before--BorderColor);
     --pf-c-label--m-outline__content--link--hover--before--BorderColor: var(--pf-c-label--m-outline--m-orange__content--link--hover--before--BorderColor);
     --pf-c-label--m-outline__content--link--focus--before--BorderColor: var(--pf-c-label--m-outline--m-orange__content--link--focus--before--BorderColor);
+    --pf-c-label--m-editable__content--before--BorderColor: var(--pf-c-label--m-orange__content--before--BorderColor);
+    --pf-c-label--m-editable__content--hover--before--BorderColor: var(--pf-c-label--m-orange__content--before--BorderColor);
+    --pf-c-label--m-editable__content--focus--before--BorderColor: var(--pf-c-label--m-orange__content--before--BorderColor);
   }
 
   &.pf-m-red {
@@ -213,6 +244,9 @@
     --pf-c-label--m-outline__content--before--BorderColor: var(--pf-c-label--m-outline--m-red__content--before--BorderColor);
     --pf-c-label--m-outline__content--link--hover--before--BorderColor: var(--pf-c-label--m-outline--m-red__content--link--hover--before--BorderColor);
     --pf-c-label--m-outline__content--link--focus--before--BorderColor: var(--pf-c-label--m-outline--m-red__content--link--focus--before--BorderColor);
+    --pf-c-label--m-editable__content--before--BorderColor: var(--pf-c-label--m-red__content--before--BorderColor);
+    --pf-c-label--m-editable__content--hover--before--BorderColor: var(--pf-c-label--m-red__content--before--BorderColor);
+    --pf-c-label--m-editable__content--focus--before--BorderColor: var(--pf-c-label--m-red__content--before--BorderColor);
   }
 
   &.pf-m-purple {
@@ -226,6 +260,9 @@
     --pf-c-label--m-outline__content--before--BorderColor: var(--pf-c-label--m-outline--m-purple__content--before--BorderColor);
     --pf-c-label--m-outline__content--link--hover--before--BorderColor: var(--pf-c-label--m-outline--m-purple__content--link--hover--before--BorderColor);
     --pf-c-label--m-outline__content--link--focus--before--BorderColor: var(--pf-c-label--m-outline--m-purple__content--link--focus--before--BorderColor);
+    --pf-c-label--m-editable__content--before--BorderColor: var(--pf-c-label--m-purple__content--before--BorderColor);
+    --pf-c-label--m-editable__content--hover--before--BorderColor: var(--pf-c-label--m-purple__content--before--BorderColor);
+    --pf-c-label--m-editable__content--focus--before--BorderColor: var(--pf-c-label--m-purple__content--before--BorderColor);
   }
 
   &.pf-m-cyan {
@@ -239,6 +276,9 @@
     --pf-c-label--m-outline__content--before--BorderColor: var(--pf-c-label--m-outline--m-cyan__content--before--BorderColor);
     --pf-c-label--m-outline__content--link--hover--before--BorderColor: var(--pf-c-label--m-outline--m-cyan__content--link--hover--before--BorderColor);
     --pf-c-label--m-outline__content--link--focus--before--BorderColor: var(--pf-c-label--m-outline--m-cyan__content--link--focus--before--BorderColor);
+    --pf-c-label--m-editable__content--before--BorderColor: var(--pf-c-label--m-cyan__content--before--BorderColor);
+    --pf-c-label--m-editable__content--hover--before--BorderColor: var(--pf-c-label--m-cyan__content--before--BorderColor);
+    --pf-c-label--m-editable__content--focus--before--BorderColor: var(--pf-c-label--m-cyan__content--before--BorderColor);
   }
 
   &.pf-m-outline {
@@ -246,6 +286,9 @@
     --pf-c-label__content--before--BorderWidth: var(--pf-c-label--m-outline__content--before--BorderWidth);
     --pf-c-label__content--before--BorderColor: var(--pf-c-label--m-outline__content--before--BorderColor);
     --pf-c-label--BackgroundColor: var(--pf-c-label--m-outline--BackgroundColor);
+    --pf-c-label--m-editable__content--before--BorderColor: var(--pf-c-label--m-outline__content--before--BorderColor);
+    --pf-c-label--m-editable__content--hover--before--BorderColor: var(--pf-c-label--m-outline__content--before--BorderColor);
+    --pf-c-label--m-editable__content--focus--before--BorderColor: var(--pf-c-label--m-outline__content--before--BorderColor);
 
     // stylelint-disable selector-no-qualifying-type, max-nesting-depth
     a,
@@ -267,10 +310,39 @@
     }
   }
 
+  &.pf-m-editable {
+    text-decoration: var(--pf-c-label--m-editable--TextDecoration);
+    cursor: var(--pf-c-label--m-editable--Cursor);
+    text-decoration-style: var(--pf-c-label--m-editable--TextDecorationStyle);
+    text-decoration-thickness: var(--pf-c-label--m-editable--TextDecorationThickness);
+    text-underline-offset: var(--pf-c-label--m-editable--TextDecorationOffset);
+    text-decoration-color: var(--pf-c-label--m-editable--TextDecorationColor);
+
+    --pf-c-label__content--MaxWidth: var(--pf-c-label--m-editable__content--MaxWidth);
+    --pf-c-label__content--before--BorderWidth: var(--pf-c-label--m-editable__content--before--BorderWidth);
+    --pf-c-label__content--before--BorderColor: var(--pf-c-label--m-editable__content--before--BorderColor);
+    --pf-c-label__content--link--hover--before--BorderWidth: var(--pf-c-label--m-editable__content--hover--before--BorderWidth);
+    --pf-c-label__content--link--hover--before--BorderColor: var(--pf-c-label--m-editable__content--hover--before--BorderColor);
+    --pf-c-label__content--link--focus--before--BorderWidth: var(--pf-c-label--m-editable__content--focus--before--BorderWidth);
+    --pf-c-label__content--link--focus--before--BorderColor: var(--pf-c-label--m-editable__content--focus--before--BorderColor);
+
+    // override the outline variant border width
+    --pf-c-label--m-outline__content--link--hover--before--BorderWidth: var(--pf-c-label--m-editable__content--before--BorderWidth);
+    --pf-c-label--m-outline__content--link--focus--before--BorderWidth: var(--pf-c-label--m-editable__content--before--BorderWidth);
+
+    &:hover {
+      --pf-c-label--m-editable--TextDecorationColor: var(--pf-c-label--m-editable--hover--TextDecorationColor);
+    }
+
+    &:focus {
+      --pf-c-label--m-editable--TextDecorationColor: var(--pf-c-label--m-editable--focus--TextDecorationColor);
+    }
+  }
+
   &.pf-m-editable-active {
+    --pf-c-label--m-editable--Cursor: var(--pf-c-label--m-editable--m-editable-active--Cursor);
+    --pf-c-label--m-editable--TextDecoration: var(--pf-c-label--m-editable--m-editable-active--TextDecoration);
     --pf-c-label--BackgroundColor: var(--pf-c-label--m-editable--m-editable-active--BackgroundColor);
-    --pf-c-label__content--before--BorderWidth: var(--pf-c-label--m-editable--m-editable-active__content--before--BorderWidth);
-    --pf-c-label__content--before--BorderColor: var(--pf-c-label--m-editable--m-editable-active__content--before--BorderColor);
 
     .pf-c-button {
       visibility: hidden; // use visibility hidden to retain positioning
@@ -315,8 +387,11 @@
 }
 
 .pf-c-label__content {
+  @include pf-text-overflow;
+
+  max-width: var(--pf-c-label__content--MaxWidth);
   color: var(--pf-c-label__content--Color);
-  border: 0;
+  border-width: 0;
 
   &::before {
     position: absolute;

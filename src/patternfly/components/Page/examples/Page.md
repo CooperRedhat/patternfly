@@ -175,7 +175,7 @@ wrapperTag: div
 {{/page}}
 ```
 
-### Centered content
+### Centered section
 ```hbs
 {{#> page}}
   {{#> page-header}}
@@ -193,7 +193,13 @@ wrapperTag: div
   {{/page-header}}
   {{#> page-main}}
     {{#> page-main-section page-main-section--IsLimitWidth="true" page-main-section--modifier="pf-m-align-center"}}
-      Page section width limited, centered.
+      {{#> card}}
+        {{#> card-body}}
+          When a width limited page section is wider than the value of <code>--pf-c-page--section--m-limit-width--MaxWidth</code>, the section will be centered in the main section.
+          <br><br>
+          The content in this example is placed in a card to better illustrate how the section behaves when it is centered. A card is not required to center a page section.
+        {{/card-body}}
+      {{/card}}
     {{/page-main-section}}
   {{/page-main}}
 {{/page}}
@@ -212,6 +218,7 @@ This component provides the basic chrome for a page, including sidebar, header, 
 | `id="[id]"` | `.pf-c-page__main` | Provides a hook for sending focus to new content. **Required** |
 | `aria-expanded="true/false"` | `.pf-c-page__header-brand-toggle > .pf-c-button` | Indicates that the expandable content is visible and the current state of the contents. **Required** |
 | `aria-controls="[id of nav]"` | `.pf-c-page__header-brand-toggle > .pf-c-button` | Identifies the element controlled by the toggle. **Required**
+| `tabindex="0"` | `.pf-c-page__main-section.pf-m-overflow-scroll` | If a page section has overflow content that triggers a scrollbar, to ensure that the content is keyboard accessible, the page section must include either a focusable element within the scrollable region or the page section itself must be focusable by adding `tabindex="0"`. |
 
 ### Usage
 | Class | Applied to | Outcome |
@@ -244,12 +251,13 @@ This component provides the basic chrome for a page, including sidebar, header, 
 | `.pf-m-light` | `.pf-c-page__main-section` | Modifies a main page section to have a light theme. |
 | `.pf-m-dark-200` | `.pf-c-page__main-section` |  Modifies a main page section to have a dark theme and a dark transparent background. |
 | `.pf-m-dark-100` | `.pf-c-page__main-section` |  Modifies a main page section to have a dark theme and a darker transparent background. |
-| `.pf-m-no-padding`, `.pf-m-no-padding{-on-[breakpoint]}` | `.pf-c-page__main-section` | Removes padding from the main page section at an optional breakpoint |
-| `.pf-m-padding{-on-[breakpoint]}` | `.pf-c-page__main-section` | Modifies the main page section to add padding back in at a specified breakpoint. Should be used with pf-m-no-padding. |
+| `.pf-m-light-200` | `.pf-c-page__main-wizard` | Modifies a wizard page section to have a light 200 theme. |
+| `.pf-m-no-padding`, `.pf-m-no-padding{-on-[breakpoint]}` | `.pf-c-page__main-section` | Removes padding from the main page section at an optional [breakpoint](/developer-resources/global-css-variables#breakpoint-variables-and-class-suffixes). |
+| `.pf-m-padding{-on-[breakpoint]}` | `.pf-c-page__main-section` | Modifies the main page section to add padding back in at an optional [breakpoint](/developer-resources/global-css-variables#breakpoint-variables-and-class-suffixes). Should be used with pf-m-no-padding. |
 | `.pf-m-fill` | `.pf-c-page__main-section` | Modifies a main page section to grow to fill the available vertical space. |
 | `.pf-m-no-fill` | `.pf-c-page__main-section` | Modifies a main page section to not grow to fill the available vertical space. |
-| `.pf-m-hidden{-on-[breakpoint]}` | `.pf-c-page__header-tools-group`, `.pf-c-page__header-tools-item` | Hides a header tools group or item at a specified breakpoint, or hides it at all breakpoints with `.pf-m-hidden`. |
-| `.pf-m-visible{-on-[breakpoint]}` | `.pf-c-page__header-tools-group`, `.pf-c-page__header-tools-item` | Shows a header tools group or item at a specified breakpoint. |
+| `.pf-m-hidden{-on-[breakpoint]}` | `.pf-c-page__header-tools-group`, `.pf-c-page__header-tools-item` | Hides a header tools group or item at an optional breakpoint, or hides it at all [breakpoints](/developer-resources/global-css-variables#breakpoint-variables-and-class-suffixes) with `.pf-m-hidden`. |
+| `.pf-m-visible{-on-[breakpoint]}` | `.pf-c-page__header-tools-group`, `.pf-c-page__header-tools-item` | Shows a header tools group or item at an optional [breakpoint](/developer-resources/global-css-variables#breakpoint-variables-and-class-suffixes). |
 | `.pf-m-limit-width` | `.pf-c-page__main-section` | Modifies a page section to limit the `max-width` of the content inside. |
 | `.pf-m-align-center` | `.pf-c-page__main-section.pf-m-limit-width` | Modifies a page section body to align center. |
 | `.pf-m-sticky-top` | `.pf-c-page__main-*` | Modifies a section/group to be sticky to the top of its container. |

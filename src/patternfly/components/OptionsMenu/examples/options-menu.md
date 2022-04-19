@@ -110,32 +110,29 @@ import './options-menu.css'
 
 ### Plain with text
 ```hbs
-{{#> options-menu id="options-menu-disabled-text-example" options-menu--IsText="true" options-menu-toggle--IsDisabled="true"}}
-  {{#> options-menu-toggle options-menu-toggle--type="div" options-menu-toggle--modifier="pf-m-plain"}}
+{{#> options-menu id="options-menu-disabled-text-example" options-menu--IsPlainWithText="true" options-menu-toggle--IsDisabled="true" options-menu--HasToggleIcon="true"}}
+  {{#> options-menu-toggle}}
     {{#> options-menu-toggle-text}}
       Custom text
     {{/options-menu-toggle-text}}
-    {{> options-menu-toggle-button aria-label="Options menu"}}
   {{/options-menu-toggle}}
   {{> options-menu-single}}
 {{/options-menu}}
 
-{{#> options-menu id="options-menu-plain-text-example" options-menu--IsText="true"}}
-  {{#> options-menu-toggle options-menu-toggle--type="div" options-menu-toggle--modifier="pf-m-plain"}}
+{{#> options-menu id="options-menu-plain-text-example" options-menu--IsPlainWithText="true" options-menu--HasToggleIcon="true"}}
+  {{#> options-menu-toggle}}
     {{#> options-menu-toggle-text}}
       Custom text
     {{/options-menu-toggle-text}}
-    {{> options-menu-toggle-button aria-label="Options menu"}}
   {{/options-menu-toggle}}
   {{> options-menu-single}}
 {{/options-menu}}
 
-{{#> options-menu options-menu--IsExpanded="true" id="options-menu-plain-text-expanded-example" options-menu--IsText="true"}}
-  {{#> options-menu-toggle options-menu-toggle--type="div" options-menu-toggle--modifier="pf-m-plain"}}
+{{#> options-menu id="options-menu-plain-text-expanded-example" options-menu--IsPlainWithText="true" options-menu--HasToggleIcon="true" options-menu--IsExpanded="true"}}
+  {{#> options-menu-toggle}}
     {{#> options-menu-toggle-text}}
       Custom text
     {{/options-menu-toggle-text}}
-    {{> options-menu-toggle-button aria-label="Options menu"}}
   {{/options-menu-toggle}}
   {{> options-menu-single}}
 {{/options-menu}}
@@ -203,7 +200,7 @@ import './options-menu.css'
 | `.pf-m-top` | `.pf-c-options-menu` | Modifies to display the menu above the toggle. |
 | `.pf-m-align-right` | `.pf-c-options-menu__menu` | Modifies to display the menu aligned to the right edge of the toggle |
 | `.pf-m-expanded` | `.pf-c-options-menu` |  Modifies for the expanded state. |
-| `.pf-m-plain` | `.pf-c-options-menu__toggle` |  Modifies to display the toggle with no border. |
+| `.pf-m-plain` | `.pf-c-options-menu__toggle` |  Modifies to display the toggle with no border. **Note:** Can be combined with `.pf-m-text` to create a normal text toggle with no border. |
 | `.pf-m-disabled` | `.pf-c-options-menu__toggle` | Modifies to display the options menu toggle as disabled. This applies to `pf-c-options-menu__toggle` and should not be used in lieu of the `disabled` attribute on `pf-c-options-menu__toggle`. When this is used, `disabled` should also be added to any form elements in `.pf-c-options-menu__toggle` |
 | `.pf-m-text` | `.pf-c-options-menu__toggle` |  For use when the `.pf-c-options-menu__toggle` is a `<div>` or some non-interactive elment, and you're using a custom `.pf-c-options-menu__toggle-button` to toggle the options menu. |
 | `.pf-m-active` | `.pf-c-options-menu__toggle` | Forces display of the active state of the toggle. |

@@ -80,7 +80,7 @@ import './Tabs.css'
 
 ### Box tabs color scheme light 300
 ```hbs
-{{#> tabs tabs--modifier="pf-m-box pf-m-color-scheme--light-300" tabs--id="Box-tabs-alt-color-scheme"}}
+{{#> tabs tabs--modifier="pf-m-box pf-m-color-scheme--light-300" tabs--id="box-tabs-alt-color-scheme"}}
   {{> __tabs-list __tabs-list--IsDisabled="true"}}
 {{/tabs}}
 <div className="tabs-example-block tabs-example-block--m-color-scheme--light-300"></div>
@@ -242,6 +242,68 @@ import './Tabs.css'
 {{/tabs}}
 ```
 
+### Close button
+```hbs
+{{#> tabs tabs--id="close-default-example" tabs--modifier="pf-m-scrollable"}}
+  {{> __tabs-list __tabs-list--IsDisabled="true" __tabs-list--IsAction="true" __tabs-list--HasClose="true" __tabs-list--IsCloseDisabled="true" __tabs-list--IsScrollable="true" __tabs-list--DisabledFirstScrollButton="true"}}
+{{/tabs}}
+
+<br><br>
+
+{{#> tabs tabs--id="close-box-example" tabs--modifier="pf-m-box pf-m-scrollable"}}
+  {{> __tabs-list __tabs-list--IsDisabled="true" __tabs-list--IsAction="true" __tabs-list--HasClose="true" __tabs-list--IsCloseDisabled="true" __tabs-list--IsScrollable="true" __tabs-list--DisabledFirstScrollButton="true"}}
+{{/tabs}}
+
+<br><br>
+
+{{#> tabs tabs--id="close-box-light-300-example" tabs--modifier="pf-m-box pf-m-color-scheme--light-300 pf-m-scrollable"}}
+  {{> __tabs-list __tabs-list--IsDisabled="true" __tabs-list--IsAction="true" __tabs-list--HasClose="true" __tabs-list--IsCloseDisabled="true" __tabs-list--IsScrollable="true" __tabs-list--DisabledFirstScrollButton="true"}}
+{{/tabs}}
+
+<br><br>
+
+{{#> tabs tabs--id="close-icons-text-example" tabs--modifier="pf-m-scrollable"}}
+  {{> __tabs-list __tabs-list--HasIcons="true" __tabs-list--IsDisabled="true" __tabs-list--IsAction="true" __tabs-list--HasClose="true" __tabs-list--IsCloseDisabled="true" __tabs-list--IsScrollable="true" __tabs-list--DisabledFirstScrollButton="true"}}
+{{/tabs}}
+
+<br><br>
+
+{{#> tabs tabs--id="close-filled-example" tabs--modifier="pf-m-fill pf-m-scrollable"}}
+  {{> __tabs-list __tabs-list--IsDisabled="true" __tabs-list--IsAction="true" __tabs-list--HasClose="true" __tabs-list--IsCloseDisabled="true" __tabs-list--IsScrollable="true" __tabs-list--DisabledFirstScrollButton="true"}}
+{{/tabs}}
+
+<br><br>
+
+{{#> tabs tabs--id="close-secondary-primary-example" tabs--modifier="pf-m-scrollable"}}
+  {{> __tabs-list __tabs-list--IsDisabled="true" __tabs-list--IsAction="true" __tabs-list--HasClose="true" __tabs-list--IsCloseDisabled="true" __tabs-list--IsScrollable="true" __tabs-list--DisabledFirstScrollButton="true"}}
+{{/tabs}}
+{{#> tabs tabs--id="close-secondary-secondary-example" tabs--modifier="pf-m-scrollable" tabs--IsSecondary="true"}}
+  {{> __tabs-list __tabs-list--IsDisabled="true" __tabs-list--IsAction="true" __tabs-list--HasClose="true" __tabs-list--IsCloseDisabled="true" __tabs-list--IsScrollable="true" __tabs-list--DisabledFirstScrollButton="true"}}
+{{/tabs}}
+```
+
+### Add tab button
+```hbs
+{{#> tabs tabs--id="close-default-example" tabs--modifier="pf-m-scrollable"}}
+  {{> __tabs-list __tabs-list--IsAction="true" __tabs-list--HasClose="true" __tabs-list--IsScrollable="true" __tabs-list--DisabledFirstScrollButton="true" __tabs-list--HasAddTab="true"}}
+{{/tabs}}
+{{#> tabs tabs--id="close-secondary-example" tabs--modifier="pf-m-scrollable" tabs--IsSecondary="true"}}
+  {{> __tabs-list __tabs-list--IsAction="true" __tabs-list--HasClose="true" __tabs-list--IsScrollable="true" __tabs-list--DisabledFirstScrollButton="true" __tabs-list--HasAddTab="true"}}
+{{/tabs}}
+
+<br><br>
+
+{{#> tabs tabs--id="close-box-example" tabs--modifier="pf-m-box pf-m-scrollable"}}
+  {{> __tabs-list __tabs-list--IsAction="true" __tabs-list--HasClose="true" __tabs-list--IsScrollable="true" __tabs-list--DisabledFirstScrollButton="true" __tabs-list--HasAddTab="true"}}
+{{/tabs}}
+
+<br><br>
+
+{{#> tabs tabs--id="close-box-light-300-example" tabs--modifier="pf-m-box pf-m-color-scheme--light-300 pf-m-scrollable"}}
+  {{> __tabs-list __tabs-list--IsAction="true" __tabs-list--HasClose="true" __tabs-list--IsScrollable="true" __tabs-list--DisabledFirstScrollButton="true" __tabs-list--HasAddTab="true"}}
+{{/tabs}}
+```
+
 The tabs component should only be used to change content views within a page. The similar-looking but semantically different [horizontal nav component](/components/navigation/#horizontal) is available for general navigation use cases.
 
 Tabs should be used with the [tab content component](/components/tab-content).
@@ -267,23 +329,28 @@ Whenever a list of tabs is unique on the current page, it can be used in a `<nav
 | `.pf-c-tabs__item` | `<li>` | Initiates a tabs component item. **Required** |
 | `.pf-c-tabs__item-text` | `<span>` | Initiates a tabs component item icon. **Required** |
 | `.pf-c-tabs__item-icon` | `<span>` | Initiates a tabs component item text. **Required** |
+| `.pf-c-tabs__item-close` | `<span>` | Initiates a tabs component item close. |
+| `.pf-c-tabs__item-close-icon` | `<span>` | Initiates a tabs component item close icon. |
 | `.pf-c-tabs__link` | `<button>`, `<a>` | Initiates a tabs component link. **Required** |
 | `.pf-c-tabs__scroll-button` | `<button>` | Initiates a tabs component scroll button. |
+| `.pf-c-tabs__add` | `<span>` | Initiates a tabs component add button. |
 | `.pf-c-tabs__toggle` | `<div>` | Initiates a tabs expandable toggle. |
 | `.pf-c-tabs__toggle-button` | `<button>` | Initiates a tabs expandable toggle button. |
 | `.pf-c-tabs__toggle-icon` | `<span>` | Initiates a tabs expandable toggle icon. |
 | `.pf-c-tabs__toggle-text` | `<span>` | Initiates a tabs expandable toggle text. |
 | `.pf-m-secondary` | `.pf-c-tabs` | Applies secondary styling to the tab component. |
 | `.pf-m-no-border-bottom` | `.pf-c-tabs` | Removes bottom border from a tab component. |
+| `.pf-m-border-bottom` | `.pf-c-tabs` | Adds a bottom border to secondary tabs. |
 | `.pf-m-box` | `.pf-c-tabs` | Applies box styling to the tab component. |
 | `.pf-m-vertical` | `.pf-c-tabs` | Applies vertical styling to the tab component. |
 | `.pf-m-fill` | `.pf-c-tabs` | Modifies the tabs to fill the available space. |
 | `.pf-m-current` | `.pf-c-tabs__item` | Indicates that a tab item is currently selected. |
+| `.pf-m-action` | `.pf-c-tabs__item` | Indicates that a tab item contains actions other than the tab link. |
 | `.pf-m-inset-{none, sm, md, lg, xl, 2xl}{-on-[md, lg, xl, 2xl]}` | `.pf-c-tabs` | Modifies the tabs component padding/inset to visually match padding of other adjacent components. |
 | `.pf-m-page-insets` | `.pf-c-tabs` | Modifies the tabs component padding/inset to visually match padding of page elements. |
 | `.pf-m-color-scheme--light-300` | `.pf-c-tabs` | Modifies the tabs component tab background colors. |
-| `.pf-m-expandable{-on-[breakpoint]}` | `.pf-c-tabs` | Modifies the tabs component to be expandable via a toggle. **Note:** works with vertical tabs only. |
-| `.pf-m-non-expandable{-on-[breakpoint]}` | `.pf-c-tabs` | Modifies the tabs component to be non-expandable. |
+| `.pf-m-expandable{-on-[breakpoint]}` | `.pf-c-tabs` | Modifies the tabs component to be expandable via a toggle at optional [breakpoint](/developer-resources/global-css-variables#breakpoint-variables-and-class-suffixes). **Note:** works with vertical tabs only. |
+| `.pf-m-non-expandable{-on-[breakpoint]}` | `.pf-c-tabs` | Modifies the tabs component to be non-expandable at optional [breakpoint](/developer-resources/global-css-variables#breakpoint-variables-and-class-suffixes). |
 | `.pf-m-expanded` | `.pf-c-tabs` | Modifies the expandable tabs component for the expanded state. |
 | `.pf-m-disabled` | `a.pf-c-tabs__link` | Modifies a tabs link for disabled styles. |
 | `.pf-m-aria-disabled` | `.pf-c-tabs__link` | Modifies a tabs link for disabled styles, but is still hoverable/focusable. |

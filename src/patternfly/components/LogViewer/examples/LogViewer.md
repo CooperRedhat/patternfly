@@ -33,6 +33,14 @@ import './LogViewer.css';
 {{/log-viewer}}
 ```
 
+### Without text wrapping
+```hbs
+{{#> log-viewer log-viewer--id="log-viewer-text-nowrap-example" log-viewer--HasLineNumbers="true" log-viewer--NoWrap="true" log-viewer--attribute='style="--pf-c-log-viewer__index--Width: 75px"'}}
+  {{> __log-viewer-toolbar menu--IsHidden="true"}}
+  {{> __log-viewer-main}}
+{{/log-viewer}}
+```
+
 ### With search results
 ```hbs
 {{#> log-viewer log-viewer--id="log-viewer-search-results-example" log-viewer--HasLineNumbers="true" log-viewer--IsMatch="true" log-viewer--attribute='style="--pf-c-log-viewer__index--Width: 75px;"'}}
@@ -91,6 +99,7 @@ import './LogViewer.css';
 {{#> log-viewer log-viewer--id="log-viewer-line-number-example" log-viewer--IsMatch="true" log-viewer--modifier="pf-m-dark" log-viewer--HasLineNumbers="true" log-viewer--attribute='style="--pf-c-log-viewer__index--Width: 75px"'}}
   {{> __log-viewer-toolbar menu--IsHidden="true"}}
   {{> __log-viewer-main}}
+  {{#> button button--modifier="pf-m-primary"}}Jump to the bottom{{/button}}
 {{/log-viewer}}
 ```
 
@@ -121,8 +130,9 @@ import './LogViewer.css';
 | `.pf-c-log-viewer__string` | `<span>` | Initiates a log viewer string element. |
 | `.pf-c-log-viewer__timestamp` | `<div>` | Initiates a log viewer text element. **Required** |
 | `.pf-m-wrap-text` | `.pf-c-log-viewer` | Modifies the log viewer text to wrap. |
+| `.pf-m-nowrap` | `.pf-c-log-viewer` | Modifies the log viewer text to not wrap. |
 | `.pf-m-line-numbers` | `.pf-c-log-viewer` | Modifies the log viewer to display line numbers. |
 | `.pf-m-dark` | `.pf-c-log-viewer` | Modifies the log viewer content for dark theme. |
 | `.pf-m-match` | `.pf-c-log-viewer__string` | Indicates a string is a search result. |
 | `.pf-m-current` | `.pf-c-log-viewer__string` | Indicates a string is the current search result. |
-| `--pf-c-log-viewer--MaxHeight{-on-[breakpoint]}: {height}` | `.pf-c-log-viewer` |  Modifies the height value of a log viewer. |
+| `--pf-c-log-viewer--MaxHeight{-on-[breakpoint]}: {height}` | `.pf-c-log-viewer` |  Modifies the height value of a log viewer at optional [breakpoint](/developer-resources/global-css-variables#breakpoint-variables-and-class-suffixes). |

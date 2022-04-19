@@ -186,6 +186,73 @@ import './Wizard.css'
 {{/wizard}}
 ```
 
+### With drawer
+```hbs isFullscreen
+{{#> wizard wizard--id="wizard-with-drawer-example"}}
+  {{#> wizard-header}}
+    {{#> button button--modifier="pf-m-plain pf-c-wizard__close" button--attribute='aria-label="Close"'}}
+      <i class="fas fa-times" aria-hidden="true"></i>
+    {{/button}}
+    {{#> title title--modifier="pf-m-3xl pf-c-wizard__title"}}Wizard title{{/title}}
+    {{#> wizard-description}}
+      Here is where the description goes
+    {{/wizard-description}}
+  {{/wizard-header}}
+  {{#> wizard-toggle}}
+    {{#> wizard-toggle-list}}
+      {{#> wizard-toggle-list-item}}
+        {{#> wizard-toggle-num}}2{{/wizard-toggle-num}}
+        Configuration
+        {{> wizard-toggle-separator}}
+      {{/wizard-toggle-list-item}}
+      {{#> wizard-toggle-list-item}}
+        Substep B
+      {{/wizard-toggle-list-item}}
+    {{/wizard-toggle-list}}
+    {{> wizard-toggle-icon}}
+  {{/wizard-toggle}}
+  {{#> drawer drawer--id="wizard-with-drawer-example-drawer" drawer-panel--IsOpen="true" drawer--IsInline="true"}}
+    {{#> drawer-main}}
+      {{#> drawer-content drawer-content--NoBody="true"}}
+        {{#> wizard-outer-wrap}}
+          {{#> wizard-inner-wrap}}
+            {{#> wizard-main}}
+              {{> wizard-template-nav}}
+              {{> __wizard-form}}
+            {{/wizard-main}}
+          {{/wizard-inner-wrap}}
+          {{#> wizard-footer}}
+            {{#> button button--modifier="pf-m-primary" button--IsSubmit="true"}}
+              Next
+            {{/button}}
+            {{#> button button--modifier="pf-m-secondary"}}
+              Back
+            {{/button}}
+            {{#> wizard-footer-cancel}}
+              {{#> button button--modifier="pf-m-link"}}
+                Cancel
+              {{/button}}
+            {{/wizard-footer-cancel}}
+          {{/wizard-footer}}
+        {{/wizard-outer-wrap}}
+      {{/drawer-content}}
+      {{#> drawer-panel drawer-panel--modifier="pf-m-light-200"}}
+        {{#> drawer-body}}
+          {{#> drawer-head}}
+            {{#> drawer-actions}}
+              {{> drawer-close}}
+            {{/drawer-actions}}
+            {{#> drawer-header}}
+              drawer-panel
+            {{/drawer-header}}
+          {{/drawer-head}}
+        {{/drawer-body}}
+      {{/drawer-panel}}
+    {{/drawer-main}}
+  {{/drawer}}
+{{/wizard}}
+```
+
 ### Expandable collapsed
 ```hbs isFullscreen
 {{#> wizard wizard--id="wizard-expandable-collapsed"}}
@@ -486,6 +553,7 @@ import './Wizard.css'
 | `aria-expanded="true"` | `.pf-c-wizard__nav-link` | Indicates that the link subnav is visible. **Required** |
 | `aria-expanded="false"` | `.pf-c-wizard__nav-link` | Indicates that the link subnav is hidden. **Required** |
 | `tabindex="-1"` | `a.pf-c-wizard__nav-link` | Removes a link from keyboard focus. **Required for disabled links with `.pf-m-disabled`** |
+| `tabindex="0"` | `.pf-c-wizard__main` | If the wizard main section has overflow content that triggers a scrollbar, to ensure that the content is keyboard accessible, the section must include either a focusable element within the scrollable region or the section itself must be focusable by adding `tabindex="0"`. |
 
 ### Usage
 | Class | Applied to | Outcome |
@@ -494,7 +562,7 @@ import './Wizard.css'
 | `.pf-c-wizard__header` | `<header>` | Initiates the header. **Required** when the wizard is in a modal. Not recommended to use when the wizard is placed on a page. |
 | `.pf-c-wizard__close` | `.pf-c-button.pf-m-plain` | Initiates the close button. **Required** |
 | `.pf-c-wizard__title` | `.pf-c-title.pf-m-3xl` | Initiates the title. **Required** |
-| `.pf-c-wizard__description` | `<p>` | Initiates the description. |
+| `.pf-c-wizard__description` | `<div>`, `<p>` | Initiates the description. |
 | `.pf-c-wizard__toggle` | `<button>` | Initiates the mobile steps menu toggle button. **Required** |
 | `.pf-c-wizard__toggle-list` | `<span>` | Initiates the toggle list. **Required** |
 | `.pf-c-wizard__toggle-list-item` | `<span>` | Initiates a toggle list item. **Required** |
