@@ -616,7 +616,7 @@
   transform: translate(var(--pf-c-button__progress--TranslateX), var(--pf-c-button__progress--TranslateY));
 
   .pf-c-spinner {
-    --pf-c-spinner--Color: currentColor;
+    --pf-c-spinner--Color: currentcolor;
   }
 }
 
@@ -625,4 +625,11 @@
   .pf-c-button {
     --pf-c-button--FontWeight: var(--pf-global--FontWeight--semi-bold);
   }
+}
+
+// stylelint-disable no-invalid-position-at-import-rule
+@import "themes/dark/button";
+
+@include pf-theme-dark {
+  @include pf-theme-dark-button;
 }

@@ -7,7 +7,9 @@ cssPrefix: pf-c-label
 import './Label.css'
 
 ## Examples
+
 ### Filled
+
 ```hbs
 {{#> label label--id="default-grey"}}
   Grey
@@ -293,9 +295,53 @@ import './Label.css'
     Cyan label with icon that truncates
   {{/label-text}}
 {{/label}}
+
+<br><br>
+
+{{#> wrapper-label wrapper-label--code="gold" wrapper-label--title="Gold"}}
+  {{#> label label--id=(concat wrapper-label--code '-default') label--modifier=(concat 'pf-m-' wrapper-label--code)}}
+    {{wrapper-label--title}}
+  {{/label}}
+
+  {{#> label label--id=(concat wrapper-label--code '-icon') label--modifier=(concat 'pf-m-' wrapper-label--code)}}
+    {{#> label-icon}}
+      <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+    {{/label-icon}}
+    {{wrapper-label--title}} icon
+  {{/label}}
+
+  {{#> label label--id=(concat wrapper-label--code '-removable') label--isRemovable="true" label--modifier=(concat 'pf-m-' wrapper-label--code)}}
+      {{wrapper-label--title}} removable
+  {{/label}}
+
+  {{#> label label--id=(concat wrapper-label--code '-icon-removable') label--isRemovable="true" label--modifier=(concat 'pf-m-' wrapper-label--code)}}
+    {{#> label-icon}}
+      <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+    {{/label-icon}}
+    {{wrapper-label--title}} icon removable
+  {{/label}}
+
+  {{#> label label--id=(concat wrapper-label--code '-link') label-content--IsLink="true" label--modifier=(concat 'pf-m-' wrapper-label--code)}}
+    {{wrapper-label--title}} link
+  {{/label}}
+
+  {{#> label label--id=(concat wrapper-label--code '-link-removable') label-content--IsLink="true" label--isRemovable="true" label--modifier=(concat 'pf-m-' wrapper-label--code)}}
+    {{wrapper-label--title}} link removable
+  {{/label}}
+
+  {{#> label label--id=(concat wrapper-label--code '-truncate') label--isRemovable="true" label--modifier=(concat 'pf-m-' wrapper-label--code)}}
+    {{#> label-icon}}
+      <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+    {{/label-icon}}
+    {{#> label-text}}
+      {{wrapper-label--title}} label with icon that truncates
+    {{/label-text}}
+  {{/label}}
+{{/wrapper-label}}
 ```
 
 ### Outline
+
 ```hbs
 {{#> label label--id="outline-grey" label--modifier="pf-m-outline"}}
   Grey
@@ -518,9 +564,44 @@ import './Label.css'
 {{#> label label--id="outline-cyan-link-close" label-content--IsLink="true" label--modifier="pf-m-outline pf-m-cyan" label--isRemovable="true"}}
   Cyan link removable
 {{/label}}
+
+<br><br>
+
+{{#> wrapper-label wrapper-label--code="gold" wrapper-label--title="Gold" wrapper-label--modifier="pf-m-outline" wrapper-label--id="outline"}}
+  {{#> label label--id=(concat wrapper-label--code '-' wrapper-label--id '-default') label--modifier=(concat 'pf-m-' wrapper-label--code ' ' wrapper-label--modifier)}}
+    {{wrapper-label--title}}
+  {{/label}}
+
+  {{#> label label--id=(concat wrapper-label--code '-' wrapper-label--id '-icon') label--modifier=(concat 'pf-m-' wrapper-label--code ' ' wrapper-label--modifier)}}
+    {{#> label-icon}}
+      <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+    {{/label-icon}}
+    {{wrapper-label--title}} icon
+  {{/label}}
+
+  {{#> label label--id=(concat wrapper-label--code '-' wrapper-label--id '-removable') label--isRemovable="true" label--modifier=(concat 'pf-m-' wrapper-label--code ' ' wrapper-label--modifier)}}
+      {{wrapper-label--title}} removable
+  {{/label}}
+
+  {{#> label label--id=(concat wrapper-label--code '-' wrapper-label--id '-icon-removable') label--isRemovable="true" label--modifier=(concat 'pf-m-' wrapper-label--code ' ' wrapper-label--modifier)}}
+    {{#> label-icon}}
+      <i class="fas fa-fw fa-info-circle" aria-hidden="true"></i>
+    {{/label-icon}}
+    {{wrapper-label--title}} icon removable
+  {{/label}}
+
+  {{#> label label--id=(concat wrapper-label--code '-' wrapper-label--id '-link') label-content--IsLink="true" label--modifier=(concat 'pf-m-' wrapper-label--code ' ' wrapper-label--modifier)}}
+    {{wrapper-label--title}} link
+  {{/label}}
+
+  {{#> label label--id=(concat wrapper-label--code '-' wrapper-label--id '-link-removable') label-content--IsLink="true" label--isRemovable="true" label--modifier=(concat 'pf-m-' wrapper-label--code ' ' wrapper-label--modifier)}}
+    {{wrapper-label--title}} link removable
+  {{/label}}
+{{/wrapper-label}}
 ```
 
 ### Compact
+
 ```hbs
 {{#> label label--id="default-compact" label--modifier="pf-m-compact"}}
   Compact
@@ -564,29 +645,32 @@ import './Label.css'
 ```
 
 ### Overflow
+
 This style of label is used to indicate overflow within a label group.
+
 ```hbs
 {{#> label label--id="overflow" label--IsOverflow="true"}}
   Overflow
 {{/label}}
 ```
 
-
 ### Editable
-**Note: Editable label behavior must be handled with JavaScript.**
-* `.pf-c-label__editable-text` onClick event should:
-  * Set `.pf-m-editable-active` on `.pf-c-label`
-  * Change `.pf-c-label__editable-text`from a button to an input
-* Return keypress, when content is editable, should:
-  * Be captured to prevent line wrapping and save updates to label text
-  * Remove `.pf-m-editable-active` from `.pf-c-label`
-  * Change `.pf-c-label__editable-text` back from an input to a button and set the `currvalue` of the button to the contents of the input
-* Esc keypress, when content is editable, should:
-  * Undo any update to label text
-  * Remove `.pf-m-editable-active` from `.pf-c-label`
-  * Change `.pf-c-label__editable-text` back to a button
 
-``` hbs isBeta
+**Note: Editable label behavior must be handled with JavaScript.**
+
+- `.pf-c-label__editable-text` onClick event should:
+  - Set `.pf-m-editable-active` on `.pf-c-label`
+  - Change `.pf-c-label__editable-text`from a button to an input
+- Return keypress, when content is editable, should:
+  - Be captured to prevent line wrapping and save updates to label text
+  - Remove `.pf-m-editable-active` from `.pf-c-label`
+  - Change `.pf-c-label__editable-text` back from an input to a button and set the `currvalue` of the button to the contents of the input
+- Esc keypress, when content is editable, should:
+  - Undo any update to label text
+  - Remove `.pf-m-editable-active` from `.pf-c-label`
+  - Change `.pf-c-label__editable-text` back to a button
+
+```hbs isBeta
 {{#> label label--id="editable-label" label--IsEditable="true" label--isRemovable="true" label--modifier="pf-m-blue"}}Editable label{{/label}}
 
 {{#> label label--id="editable-label-active" label--IsEditable="true" label--IsEditableActive="true" label--modifier="pf-m-blue"}}Editable active{{/label}}
@@ -596,9 +680,20 @@ This style of label is used to indicate overflow within a label group.
 {{#> label label--id="compact-editable-label-active" label--modifier="pf-m-compact pf-m-blue" label--IsEditable="true" label--IsEditableActive="true"}}Compact editable active{{/label}}
 ```
 
+### Add label
+
+This style of label is used to add new labels to a label group.
+
+```hbs isBeta
+{{#> label label--IsAdd="true"}}
+  Add Label
+{{/label}}
+```
+
 ## Documentation
 
 ### Usage
+
 | Class | Applied to | Outcome |
 | -- | -- | -- |
 | `.pf-c-label` | `<span>`, `<button>` | Initiates a label. Without a color modifier, the label's default style is grey. Use a color modifier to change the label color. Use a `<button>` if the label is an overflow label used in the label group. **Required** |
@@ -609,11 +704,13 @@ This style of label is used to indicate overflow within a label group.
 | `.pf-m-outline` | `.pf-c-label` | Modifies label for outline styles. |
 | `.pf-m-compact` | `.pf-c-label` | Modifies label for compact styles. |
 | `.pf-m-overflow` | `.pf-c-label` | Modifies label for overflow styles for use in a label group. |
+| `.pf-m-add` | `.pf-c-label` | Modifies label for add styles for use in a label group. |
 | `.pf-m-blue` | `.pf-c-label` | Modifies the label to have blue colored styling. |
 | `.pf-m-green` | `.pf-c-label` | Modifies the label to have green colored styling. |
 | `.pf-m-orange` | `.pf-c-label` | Modifies the label to have orange colored styling. |
 | `.pf-m-red` | `.pf-c-label` | Modifies the label to have red colored styling. |
 | `.pf-m-purple` | `.pf-c-label` | Modifies the label to have purple colored styling. |
 | `.pf-m-cyan` | `.pf-c-label` | Modifies the label to have cyan colored styling. |
+| `.pf-m-gold` | `.pf-c-label` | Modifies the label to have gold colored styling. |
 | `.pf-m-editable` | `.pf-c-label` | Modifies label for editable styles. |
 | `.pf-m-editable-active` | `.pf-c-label.pf-m-editable` | Modifies editable label for active styles. |

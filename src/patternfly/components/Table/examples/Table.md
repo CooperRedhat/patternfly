@@ -654,12 +654,14 @@ When header cells are empty or they contain interactive elements, `<th>` should 
 
 ## Expandable
 
+Note: Table column widths will respond automatically when toggling expanded rows. To retain column widths between expanded and collapsed states, column header and/or data cell widths must be set.
+
 ### Expandable example
 ```hbs
 {{#> table table--id="table-expandable" table--grid="true" table--modifier="pf-m-grid-lg" table--expandable="true" table--attribute='aria-label="Expandable table example"'}}
   {{#> table-thead}}
     {{#> table-tr table-tr--index="thead"}}
-      {{> table--toggle-all table-tr--expanded="true"}}
+      {{> table--toggle-all}}
       {{> table--check table--check--IsThead="true"}}
       {{#> table-th table-th--attribute='scope="col"' table-th--sortable="true" table-th--modifier="pf-m-width-30" table-th--selected="true" table-th--asc="true"}}
         Repositories
@@ -785,6 +787,164 @@ When header cells are empty or they contain interactive elements, `<th>` should 
       {{#> table-td table-td--modifier="pf-m-no-padding" table-td--attribute=(concat 'colspan="7" id="' table--id '-content' table-tr--index '"')}}
         {{#> table-expandable-row-content}}
           Expandable row content has no padding.
+        {{/table-expandable-row-content}}
+      {{/table-td}}
+    {{/table-tr}}
+  {{/table-tbody}}
+{{/table}}
+```
+
+### Expandable with set width columns example
+```hbs
+{{#> table table--id="expandable-set-width-columns-example" table--grid="true" table--modifier="pf-m-grid-lg" table--expandable="true" table--attribute='aria-label="Expandable table, set column widths example"'}}
+  {{#> table-thead}}
+    {{#> table-tr table-tr--index="thead"}}
+      {{> table--toggle-all table-tr--expanded="true"}}
+      {{> table--check table--check--IsThead="true"}}
+      {{#> table-th table-th--attribute='scope="col"' table-th--modifier="pf-m-width-30" table-th--sortable="true" table-th--selected="true" table-th--asc="true"}}
+        Repositories
+      {{/table-th}}
+      {{#> table-th table-th--attribute='scope="col"' table-th--modifier="pf-m-width-20" table-th--sortable="true"}}
+        Branches
+      {{/table-th}}
+      {{#> table-th table-th--attribute='scope="col"' table-th--modifier="pf-m-width-20" table-th--sortable="true"}}
+        Pull requests
+      {{/table-th}}
+      {{#> table-th table-th--attribute='scope="col"' table-th--modifier="pf-m-width-10"}}
+        Links
+      {{/table-th}}
+      {{> table-td table-td--IsEmpty="true"}}
+    {{/table-tr}}
+  {{/table-thead}}
+
+  {{#> table-tbody table-tr--index="1" table-tbody--modifier="pf-m-expanded"}}
+    {{#> table-tr table-tr--expanded="true"}}
+      {{> table--toggle}}
+      {{> table--check}}
+      {{> table--node}}
+      {{#> table-td table-td--data-label="Branches"}}
+        10
+      {{/table-td}}
+      {{#> table-td table-td--data-label="Pull requests"}}
+        25
+      {{/table-td}}
+      {{#> table-td table-td--data-label="Action"}}
+        <a href="#">Link 1</a>
+      {{/table-td}}
+      {{#> table-td table-td--action="true"}}
+        {{> dropdown dropdown--id=(concat table--id '-dropdown-kebab-' table-tr--index) dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
+      {{/table-td}}
+    {{/table-tr}}
+
+    {{#> table-tr table-tr--expandable="true" table-tr--IsExpanded="true" table-tr--attribute=(concat 'id="' table--id '-content' table-tr--index '"')}}
+      {{> table-td table-td--IsEmpty="true"}}
+      {{> table-td table-td--IsEmpty="true"}}
+      {{#> table-td table-td--attribute='colspan="4"'}}
+        {{#> table-expandable-row-content}}
+          <b>Span four</b>&nbsp;lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        {{/table-expandable-row-content}}
+      {{/table-td}}
+      {{> table-td table-td--IsEmpty="true"}}
+    {{/table-tr}}
+  {{/table-tbody}}
+
+  {{#> table-tbody table-tr--index="2" table-tr--IsExpanded="true"}}
+    {{#> table-tr table-tr--expanded="true"}}
+      {{> table--toggle}}
+      {{> table--check}}
+      {{> table--node}}
+      {{#> table-td table-td--data-label="Branches"}}
+        10
+      {{/table-td}}
+      {{#> table-td table-td--data-label="Pull requests"}}
+        25
+      {{/table-td}}
+      {{#> table-td table-td--data-label="Action"}}
+        <a href="#">Link 2</a>
+      {{/table-td}}
+      {{#> table-td table-td--action="true"}}
+        {{> dropdown dropdown--id=(concat table--id '-dropdown-kebab-' table-tr--index) dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
+      {{/table-td}}
+    {{/table-tr}}
+
+    {{#> table-tr table-tr--expandable="true" table-tr--IsExpanded="true" table-tr--attribute=(concat 'id="' table--id '-content' table-tr--index '"')}}
+      {{> table-td table-td--IsEmpty="true"}}
+      {{> table-td table-td--IsEmpty="true"}}
+      {{#> table-td table-td--attribute='colspan="2"'}}
+        {{#> table-expandable-row-content}}
+          Span three and four
+        {{/table-expandable-row-content}}
+      {{/table-td}}
+      {{#> table-td table-td--attribute='colspan="2"'}}
+        {{#> table-expandable-row-content}}
+          Span five and six
+        {{/table-expandable-row-content}}
+      {{/table-td}}
+      {{> table-td table-td--IsEmpty="true"}}
+    {{/table-tr}}
+  {{/table-tbody}}
+
+  {{#> table-tbody table-tr--index="3" table-tbody--modifier="pf-m-expanded"}}
+    {{#> table-tr table-tr--expanded="true"}}
+      {{> table--toggle}}
+      {{> table--check}}
+      {{> table--node}}
+      {{#> table-td table-td--data-label="Branches"}}
+        10
+      {{/table-td}}
+      {{#> table-td table-td--data-label="Pull requests"}}
+        25
+      {{/table-td}}
+      {{#> table-td table-td--data-label="Action"}}
+        <a href="#">Link 3</a>
+      {{/table-td}}
+      {{#> table-td table-td--action="true"}}
+        {{> dropdown dropdown--id=(concat table--id '-dropdown-kebab-' table-tr--index) dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
+      {{/table-td}}
+    {{/table-tr}}
+
+    {{#> table-tr table-tr--expandable="true" table-tr--IsExpanded="true" table-tr--attribute=(concat 'id="' table--id '-content' table-tr--index '"')}}
+      {{#> table-td table-td--attribute='colspan="7"'}}
+        {{#> table-expandable-row-content}}
+          <b>Span all</b>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        {{/table-expandable-row-content}}
+      {{/table-td}}
+    {{/table-tr}}
+  {{/table-tbody}}
+
+  {{#> table-tbody table-tr--index="4" table-tbody--modifier="pf-m-expanded"}}
+    {{#> table-tr table-tr--expanded="true"}}
+      {{> table--toggle}}
+      {{> table--check}}
+      {{> table--node}}
+      {{#> table-td table-td--data-label="Branches"}}
+        10
+      {{/table-td}}
+      {{#> table-td table-td--data-label="Pull requests"}}
+        25
+      {{/table-td}}
+      {{#> table-td table-td--data-label="Action"}}
+        <a href="#">Link 4</a>
+      {{/table-td}}
+      {{#> table-td table-td--action="true"}}
+        {{> dropdown dropdown--id=(concat table--id '-dropdown-kebab-' table-tr--index) dropdown-menu--modifier="pf-m-align-right" dropdown-toggle--IsPlain="true"}}
+      {{/table-td}}
+    {{/table-tr}}
+
+    {{#> table-tr table-tr--expandable="true" table-tr--IsExpanded="true" table-tr--attribute=(concat 'id="' table--id '-content' table-tr--index '"')}}
+      {{#> table-td table-td--attribute='colspan="3"'}}
+        {{#> table-expandable-row-content}}
+          Span one, two, and three
+        {{/table-expandable-row-content}}
+      {{/table-td}}
+      {{#> table-td table-td--attribute='colspan="2"'}}
+        {{#> table-expandable-row-content}}
+          Span four and five
+        {{/table-expandable-row-content}}
+      {{/table-td}}
+      {{#> table-td table-td--attribute='colspan="2"'}}
+        {{#> table-expandable-row-content}}
+          Span six and seven
         {{/table-expandable-row-content}}
       {{/table-td}}
     {{/table-tr}}
@@ -3122,7 +3282,12 @@ There are a few ways this can be handled:
 
 ```hbs
 <div class="pf-c-scroll-inner-wrapper">
-  {{> table--scrollable table--scrollable--id="sticky-column-example" table--scrollable--Column1IsStickyColumn="true" table--scrollable--th--modifier--cell-1-modifier="pf-m-border-right"}}
+  {{> table--scrollable
+      table--scrollable--id="sticky-column-example"
+      table--scrollable--Column1IsStickyColumn="true"
+      table--scrollable--th--modifier--cell-1-modifier="pf-m-truncate pf-m-border-right"
+      table--scrollable--th--modifier--cell-2-modifier="pf-m-truncate"
+      }}
 </div>
 ```
 
@@ -3130,7 +3295,13 @@ There are a few ways this can be handled:
 
 ```hbs
 <div class="pf-c-scroll-inner-wrapper">
-  {{> table--scrollable table--scrollable--id="sticky-multi-column-example" table--scrollable--Column1IsStickyColumn="true" table--scrollable--Column2IsStickyColumn="true" table--scrollable--th--modifier--cell-2-modifier="pf-m-border-right"}}
+  {{> table--scrollable
+      table--scrollable--id="sticky-multi-column-example"
+      table--scrollable--Column1IsStickyColumn="true"
+      table--scrollable--Column2IsStickyColumn="true"
+      table--scrollable--th--modifier--cell-1-modifier="pf-m-truncate"
+      table--scrollable--th--modifier--cell-2-modifier="pf-m-truncate pf-m-border-right"
+      }}
 </div>
 ```
 
@@ -3139,7 +3310,13 @@ There are a few ways this can be handled:
 ```hbs
 <div class="pf-c-scroll-outer-wrapper">
   <div class="pf-c-scroll-inner-wrapper">
-    {{> table--scrollable table--scrollable--id="sticky-header-columns-example" table--scrollable--modifier="pf-m-sticky-header" table--scrollable--Column1IsStickyColumn="true" table--scrollable--Column2IsStickyColumn="true" table--scrollable--th--modifier--cell-2-modifier="pf-m-border-right"}}
+    {{> table--scrollable table--scrollable--id="sticky-header-columns-example"
+        table--scrollable--modifier="pf-m-sticky-header"
+        table--scrollable--Column1IsStickyColumn="true"
+        table--scrollable--Column2IsStickyColumn="true"
+        table--scrollable--th--modifier--cell-1-modifier="pf-m-truncate"
+        table--scrollable--th--modifier--cell-2-modifier="pf-m-truncate pf-m-border-right"
+        }}
   </div>
 </div>
 ```
@@ -3188,6 +3365,7 @@ For sticky columns to function correctly, the parent table's width must be contr
           Visual designers
         {{/table-th}}
       {{/table-tr}}
+      {{> table-tr table-tr--IsBorderRow="true" table-tr--colspan="9"}}
     {{/table-thead}}
 
     {{#> table-tbody table-tbody--modifier="pf-m-expanded" table-tr--index="1"}}
@@ -3268,7 +3446,7 @@ For sticky columns to function correctly, the parent table's width must be contr
 </div>
 ```
 
-### Nested column headers
+### Nested column headers example
 ```hbs
 <div class="pf-c-scroll-inner-wrapper">
   {{#> table table--id="table-nested-column-headers-example" table--grid="true" table--attribute='aria-label="This is a nested column header table example"'}}
@@ -3313,77 +3491,94 @@ For sticky columns to function correctly, the parent table's width must be contr
       {{/table-tr}}
     {{/table-thead}}
 
-    {{#> table-tbody table-tr--index="1"}}
-      {{#> table--tr table-tr--expanded="true"}}
-        {{#> table-td table-td--data-label="Source"}}
-          {{#> l-flex l-flex--modifier="pf-m-nowrap"}}
-            {{#> l-flex-item}}
-              {{#> label label--modifier="pf-m-cyan"}}
-                P
-              {{/label}}
-            {{/l-flex-item}}
-            {{#> l-flex-item l-flex-item--modifier="pf-m-flex-1"}}
-              <span class="pf-c-table__text pf-m-truncate">
-                <a href="#">api-pod-source-name</a>
-              </span>
-            {{/l-flex-item}}
-          {{/l-flex}}
-        {{/table-td}}
-        {{#> table-td table-td--data-label="Destination"}}
-          {{#> l-flex l-flex--modifier="pf-m-nowrap"}}
-            {{#> l-flex-item}}
-              {{#> label label--modifier="pf-m-cyan"}}
-                P
-              {{/label}}
-            {{/l-flex-item}}
-            {{#> l-flex-item l-flex-item--modifier="pf-m-flex-1"}}
-              <span class="pf-c-table__text pf-m-truncate">
-                <a href="#">api-pod-destination-name</a>
-              </span>
-            {{/l-flex-item}}
-          {{/l-flex}}
-        {{/table-td}}
-        {{#> table-td table-td--data-label="Date & time"}}
-          {{#> stack}}
-            <span>June 22, 2021</span>
-            <span class="pf-u-color-200">3:58:24 PM</span>
-          {{/stack}}
-        {{/table-td}}
-        {{#> table-td table-td--data-label="Source"}}
-          {{#> stack}}
-            <span>443</span>
-            <span class="pf-u-color-200">(HTTPS)</span>
-          {{/stack}}
-        {{/table-td}}
-        {{#> table-td table-td--data-label="Destination"}}
-          {{#> stack}}
-            <span>24</span>
-            <span class="pf-u-color-200">(smtp)</span>
-          {{/stack}}
-        {{/table-td}}
-        {{#> table-td table-td--data-label="Protocol"}}
-          TCP
-        {{/table-td}}
-        {{#> table-td table-td--data-label="Flow rate"}}
-          1.9 Kbps
-        {{/table-td}}
-        {{#> table-td table-td--data-label="Traffic"}}
-          2.1 KB
-        {{/table-td}}
-        {{#> table-td table-td--data-label="Packets"}}
-          3
-        {{/table-td}}
-      {{/table--tr}}
+    {{#> table-tbody}}
+      {{> table-tr--nested-column-header table-tr--index="1"}}
+      {{> table-tr--nested-column-header table-tr--index="2"}}
+      {{> table-tr--nested-column-header table-tr--index="3"}}
+      {{> table-tr--nested-column-header table-tr--index="4"}}
+      {{> table-tr--nested-column-header table-tr--index="5"}}
+      {{> table-tr--nested-column-header table-tr--index="6"}}
+      {{> table-tr--nested-column-header table-tr--index="7"}}
+      {{> table-tr--nested-column-header table-tr--index="8"}}
+      {{> table-tr--nested-column-header table-tr--index="9"}}
+      {{> table-tr--nested-column-header table-tr--index="10"}}
     {{/table-tbody}}
   {{/table}}
 </div>
 ```
+
+### Nested column headers, sticky header
+```hbs
+<div class="pf-c-scroll-inner-wrapper">
+  {{#> table table--id="table-nested-column-headers-sticky-header-example" table--modifier="pf-m-grid-md pf-m-sticky-header" table--grid="true" table--attribute='aria-label="This is a sticky nested column header table example"'}}
+    {{#> table-thead table-thead--modifier="pf-m-nested-column-header"}}
+      {{#> table-tr}}
+        {{#> table-th table-th--attribute='scope="col" colspan="3"' table-th--modifier="pf-m-border-right"}}
+          Pods
+        {{/table-th}}
+        {{#> table-th table-th--attribute='scope="col" colspan="2"' table-th--modifier="pf-m-border-right"}}
+          Ports
+        {{/table-th}}
+        {{#> table-th table-th--attribute='scope="col" rowspan="2"' table-th--sortable="true" table-th--modifier="pf-m-border-right pf-m-fit-content"}}
+          Protocol
+        {{/table-th}}
+        {{#> table-th table-th--attribute='scope="col" rowspan="2"' table-th--sortable="true" table-th--modifier="pf-m-border-right pf-m-fit-content"}}
+          Flow rate
+        {{/table-th}}
+        {{#> table-th table-th--attribute='scope="col" rowspan="2"' table-th--sortable="true" table-th--modifier="pf-m-border-right pf-m-fit-content"}}
+          Traffic
+        {{/table-th}}
+        {{#> table-th table-th--attribute='scope="col" rowspan="2"' table-th--sortable="true" table-th--modifier="pf-m-fit-content"}}
+          Packets
+        {{/table-th}}
+      {{/table-tr}}
+
+      {{#> table-tr}}
+        {{#> table-th table-th--attribute='scope="col"' table-th--sortable="true" table-th--modifier="pf-c-table__subhead"}}
+          Source
+        {{/table-th}}
+        {{#> table-th table-th--attribute='scope="col"' table-th--sortable="true" table-th--modifier="pf-c-table__subhead"}}
+          Destination
+        {{/table-th}}
+        {{#> table-th table-th--attribute='scope="col"' table-th--sortable="true" table-th--modifier="pf-c-table__subhead pf-m-fit-content pf-m-border-right"}}
+          Date & Time
+        {{/table-th}}
+        {{#> table-th table-th--attribute='scope="col"' table-th--sortable="true" table-th--modifier="pf-c-table__subhead pf-m-fit-content"}}
+          Source
+        {{/table-th}}
+        {{#> table-th table-th--attribute='scope="col"' table-th--sortable="true" table-th--modifier="pf-c-table__subhead pf-m-fit-content pf-m-border-right"}}
+          Destination
+        {{/table-th}}
+      {{/table-tr}}
+      {{> table-tr table-tr--IsBorderRow="true" table-tr--colspan="9"}}
+    {{/table-thead}}
+
+    {{#> table-tbody}}
+      {{> table-tr--nested-column-header table-tr--index="1"}}
+      {{> table-tr--nested-column-header table-tr--index="2"}}
+      {{> table-tr--nested-column-header table-tr--index="3"}}
+      {{> table-tr--nested-column-header table-tr--index="4"}}
+      {{> table-tr--nested-column-header table-tr--index="5"}}
+      {{> table-tr--nested-column-header table-tr--index="6"}}
+      {{> table-tr--nested-column-header table-tr--index="7"}}
+      {{> table-tr--nested-column-header table-tr--index="8"}}
+      {{> table-tr--nested-column-header table-tr--index="9"}}
+      {{> table-tr--nested-column-header table-tr--index="10"}}
+    {{/table-tbody}}
+  {{/table}}
+</div>
+```
+### Accessibility
+| Attribute | Applied to | Outcome |
+| -- | -- | -- |
+| `aria-hidden="true"` | `.pf-m-border-row` |  Hides table row from assistive technologies. **Required** |
 
 ### Nested column header modifier usage
 
 | Class | Applied to | Outcome |
 | -- | -- | -- |
 | `.pf-m-nested-column-header` | `<thead>` | Modifies a table header to handle nested header cells. |
+| `.pf-m-border-row` | `.pf-m-sticky-header > .pf-m-nested-column-header > tr` | Modifies the last row in a sticky header with nested column headers to display as a border. |
 | `.pf-m-border-right` | `<th>`, `<td>` | Modifies a table cell to show a right border. |
 | `.pf-m-border-left` | `<th>`, `<td>` | Modifies a table cell to show a left border. |
 

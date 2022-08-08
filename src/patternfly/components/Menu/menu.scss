@@ -98,8 +98,8 @@
   --pf-c-menu__group-title--PaddingTop: var(--pf-global--spacer--md);
   --pf-c-menu__group-title--PaddingRight: var(--pf-c-menu__item--PaddingRight);
   --pf-c-menu__group-title--PaddingLeft: var(--pf-c-menu__item--PaddingLeft);
-  --pf-c-menu__group-title--FontSize: var(--pf-global--FontSize--sm);
-  --pf-c-menu__group-title--FontWeight: var(--pf-global--FontWeight--bold);
+  --pf-c-menu__group-title--FontSize: var(--pf-global--FontSize--xs);
+  --pf-c-menu__group-title--FontWeight: var(--pf-global--FontWeight--normal);
   --pf-c-menu__group-title--Color: var(--pf-global--Color--200);
 
   // Description
@@ -241,7 +241,7 @@
 
     > .pf-c-menu__content {
       flex-grow: 1;
-      overflow-x: hidden;
+      overflow: hidden;
       transition: var(--pf-c-menu--m-drilldown__content--Transition);
     }
 
@@ -264,7 +264,6 @@
       left: 100%;
       width: 100%;
       transition: var(--pf-c-menu--m-drilldown--c-menu--Transition);
-      transition: 2s;
 
       // stylelint-disable selector-max-class
       &.pf-m-drilled-in {
@@ -305,6 +304,7 @@
       }
 
       &:not(.pf-m-current-path) .pf-c-menu {
+        display: none;
         visibility: hidden;
       }
     }
@@ -740,4 +740,11 @@
     border-top: var(--pf-c-menu__footer--after--BorderTopWidth) solid var(--pf-c-menu__footer--after--BorderTopColor);
     border-bottom: var(--pf-c-menu__footer--after--BorderBottomWidth) solid var(--pf-c-menu__footer--after--BorderBottomColor);
   }
+}
+
+// stylelint-disable no-invalid-position-at-import-rule
+@import "themes/dark/menu";
+
+@include pf-theme-dark {
+  @include pf-theme-dark-menu;
 }

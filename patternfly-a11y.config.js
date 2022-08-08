@@ -1,4 +1,4 @@
-const { fullscreenRoutes } = require('theme-patternfly-org/routes');
+const { fullscreenRoutes } = require('@patternfly/documentation-framework/routes');
 
 async function waitFor(page) {
   await page.waitForSelector('#root > *');
